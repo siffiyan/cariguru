@@ -26,6 +26,10 @@
                         <tr>
                             <td class="text-center">{{$loop->iteration}}</td>
                             <td class="text-center">{{$a->jenjang}}</td>
+                            <td class="text-center">
+                                <button class="btn btn-success" id="button_edit_jenjang"><i class="fe fe-pencil"></i></button>
+                                <button class="btn btn-danger" id="button_delete_jenjang"><i class="fe fe-trash"></i></button>
+                            </td>
                         </tr>
                         @endforeach
                     </tbody>
@@ -90,7 +94,7 @@
 </div>
 
 <!-- Delete Model -->
-<form action="#" method="post">
+<form action="" method="post">
     <input type="hidden" name="_method" value="delete">
     {{csrf_field()}}
     <div class="modal fade" id="delete_modal" role="dialog" style="display: none;" aria-hidden="true">

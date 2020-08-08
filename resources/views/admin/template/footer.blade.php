@@ -15,12 +15,6 @@
 		<script src="{{asset('template/mentoring/html/admin/assets/plugins/datatables/jquery.dataTables.min.js')}}"></script>
 		<script src="{{asset('template/mentoring/html/admin/assets/plugins/datatables/datatables.min.js')}}"></script>
 
-		<script type="text/javascript">
-			$('#tabel1').dataTable();
-			$('#tabel2').dataTable();
-			$('#tabel3').dataTable();
-		</script>
-
 		@yield('js')
 		
 		<!-- Custom JS -->

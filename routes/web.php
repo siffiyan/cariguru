@@ -13,9 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('layout.master');
-});
+// Route::get('/', function () {
+//     return view('layout.master');
+// });
 
 Route::prefix('admin')->group(function () {
 
@@ -30,6 +30,10 @@ Route::prefix('admin')->group(function () {
 	Route::put('manajemen_user/edit_action_admin','Admin\ManajemenUserController@edit_action_admin');
 
 	Route::post('manajemen_user/tambah_user','Admin\ManajemenUserController@tambah_user');
+
+	Route::prefix('pembelajaran')->group(function () {
+		Route::get('jenjang','Admin\JenjangController@index');
+	});
 
 });
 
