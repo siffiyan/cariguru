@@ -1,9 +1,9 @@
 		<!-- jQuery -->
-        <script src="{{asset('template/mentoring/documentation/assets/js/jquery-3.2.1.min.js')}}"></script>
+        <script src="{{asset('template/mentoring/html/admin/assets/js/jquery-3.2.1.min.js')}}"></script>
 		
 		<!-- Bootstrap Core JS -->
-        <script src="{{asset('template/mentoring/documentation/assets/js/popper.min.js')}}"></script>
-        <script src="{{asset('template/mentoring/documentation/assets/js/bootstrap.min.js')}}"></script>
+        <script src="{{asset('template/mentoring/html/admin/assets/js/popper.min.js')}}"></script>
+        <script src="{{asset('template/mentoring/html/admin/assets/js/bootstrap.min.js')}}"></script>
 		
 		<!-- Slimscroll JS -->
         <script src="{{asset('template/mentoring/html/admin/assets/plugins/slimscroll/jquery.slimscroll.min.js')}}"></script>
@@ -24,7 +24,7 @@
 		@yield('js')
 		
 		<!-- Custom JS -->
-		<script  src="{{asset('template/mentoring/documentation/assets/js/script.js')}}"></script>
+		<script  src="{{asset('template/mentoring/html/admin/assets/js/script.js')}}"></script>
 		
     </body>
 </html>

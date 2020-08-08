@@ -10,10 +10,10 @@
         <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.png">
 		
 		<!-- Bootstrap CSS -->
-        <link rel="stylesheet" href="{{asset('template/mentoring/documentation/assets/css/bootstrap.min.css')}}">
+        <link rel="stylesheet" href="{{asset('template/mentoring/html/admin/assets/css/bootstrap.min.css')}}">
 		
 		<!-- Fontawesome CSS -->
-        <link rel="stylesheet" href="{{asset('template/mentoring/html/assets/plugins/fontawesome/css/fontawesome.min.css')}}">
+        <link rel="stylesheet" href="{{asset('template/mentoring/html/admin/assets/plugins/fontawesome/css/fontawesome.min.css')}}">
 		
 		<!-- Feathericon CSS -->
         <link rel="stylesheet" href="{{asset('template/mentoring/html/admin/assets/css/feathericon.min.css')}}">\
