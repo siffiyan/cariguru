@@ -22,12 +22,14 @@
     <a href="#"><span> Pembelajaran</span> <span class="menu-arrow"></span></a>
     <ul style="display: none;">
         <li><a href="invoice-report.html">Evaluasi Belajar</a></li>
-        <li><a href="invoice-report.html">Mata Pelajaran</a></li>
+        <li><a href="/admin/pembelajaran/mapel">Mata Pelajaran</a></li>
         <li><a href="/admin/pembelajaran/jenjang">Jenjang</a></li>
-        <li><a href="invoice-report.html">Kurikulum</a></li>
+        <li><a href="/admin/pembelajaran/kurikulum">Kurikulum</a></li>
     </ul>
 </li>
-    
+<li> 
+    <a href="/admin/blog"><span>Blog</span></a>
+</li>    
 </ul>
 </div>
 </div>

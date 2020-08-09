@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateKurikulumTable extends Migration
+class CreateMataPelajaranTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,11 @@ class CreateKurikulumTable extends Migration
      */
     public function up()
     {
-        Schema::create('kurikulum', function (Blueprint $table) {
+        Schema::create('mata_pelajaran', function (Blueprint $table) {
             $table->id();
-            $table->string('kurikulum', 50);
+            $table->string('jenjang', 50);
+            $table->string('kurikulum', 50)->nullable();
+            $table->string('mata_pelajaran', 50);
             $table->integer('admin_id');
             $table->foreign('admin_id')->references('id')->on('admin')->onDelete('cascade');
             $table->timestamps();
@@ -29,6 +31,6 @@ class CreateKurikulumTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('kurikulum');
+        Schema::dropIfExists('mata_pelajaran');
     }
 }
