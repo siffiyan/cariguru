@@ -1,6 +1,6 @@
 @extends('admin.template.master')
 
-@section('title','Kurikulum')
+@section('title','Jenjang')
 
 @section('content')
 
@@ -23,11 +23,11 @@
         </div>
     @endif
 
-    <button id="button_tambah_kurikulum" class="btn btn-danger mb-3"><i class="fe fe-plus"></i> &nbsp; Tambah Kurikulum</button>
+    <button id="button_tambah_jenjang" class="btn btn-danger mb-3"><i class="fe fe-plus"></i> &nbsp; Tambah Jenjang</button>
     
     <div class="card">
         <div class="card-header">
-            <h4 class="card-title">Data Kurikulum</h4>
+            <h4 class="card-title">Data Jenjang</h4>
         </div>
         <div class="card-body">
             <div class="table-responsive">
@@ -35,15 +35,15 @@
                     <thead>
                         <tr>
                             <th class="text-center">No</th>
-                            <th class="text-center">Kurikulum</th>
+                            <th class="text-center">Jenjang</th>
                             <th class="text-center">Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach($kurikulum as $a)
+                        @foreach($jenjang as $a)
                         <tr>
                             <td class="text-center">{{$loop->iteration}}</td>
-                            <td class="text-center">{{$a->kurikulum}}</td>
+                            <td class="text-center">{{$a->jenjang}}</td>
                             <td class="text-center">
                                 <button class="btn btn-success" onclick="edit({{$a->id}})"><i class="fe fe-pencil"></i></button>
                                 <button class="btn btn-danger" onclick="hapus({{$a->id}})"><i class="fe fe-trash"></i></button>
@@ -57,23 +57,23 @@
     </div>
 </div>
 
-<div class="modal" id="add_kurikulum" tabindex="-1" role="dialog">
+<div class="modal" id="add_jenjang" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title">Tambah Data Kurikulum</h5>
+          <h5 class="modal-title">Tambah Data Jenjang</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
         <div class="modal-body">
-            <form action="/admin/pembelajaran/kurikulum" method="post">
+            <form action="/admin/pembelajaran/jenjang" method="post">
                 @csrf
             <div class="row">
                 <div class="col-12 col-sm-12">
                     <div class="form-group">
-                        <label>Data Kurikulum</label>
-                        <input type="text" class="form-control" name="kurikulum" required>
+                        <label>Tambah Jenjang</label>
+                        <input type="text" class="form-control" name="jenjang" required>
                     </div>
                 </div>
             </div>
@@ -88,14 +88,14 @@
     </div>
 </div>
 
-<div class="modal" id="edit_kurikulum" tabindex="-1" role="dialog">
-    <form action="/admin/pembelajaran/kurikulum/update" method="post">
+<div class="modal" id="edit_jenjang" tabindex="-1" role="dialog">
+    <form action="/admin/pembelajaran/jenjang/update" method="post">
         @method('put');
         @csrf
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title">Edit Data Kurikulum</h5>
+          <h5 class="modal-title">Edit Data Jenjang</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -104,9 +104,9 @@
             <div class="row">
                 <div class="col-12 col-sm-12">
                     <div class="form-group">
-                        <label>Data Kurikulum</label>
+                        <label>Edit Jenjang</label>
                         <input type="hidden" name="id" id="id_edit">
-                        <input type="text" class="form-control" name="kurikulum" id="kurikulum" required>
+                        <input type="text" class="form-control" name="jenjang" id="jenjang" required>
                     </div>
                 </div>
             </div>
@@ -121,7 +121,7 @@
 </div>
 
 <!-- Delete Model -->
-<form action="/admin/pembelajaran/kurikulum" method="post">
+<form action="/admin/pembelajaran/jenjang" method="post">
     @method('delete');
     @csrf
     <div class="modal fade" id="delete_modal" role="dialog" style="display: none;" aria-hidden="true">
@@ -148,8 +148,8 @@
 @section('js')
 
 <script type="text/javascript">
-    $('#button_tambah_kurikulum').click(function(){
-        $('#add_kurikulum').modal('show');
+    $('#button_tambah_jenjang').click(function(){
+        $('#add_jenjang').modal('show');
     })
 
     function hapus(id){
@@ -160,13 +160,13 @@
 
     function edit(id){
         $.ajax({
-            url:'/admin/pembelajaran/kurikulum/edit/' + id,
+            url:'/admin/pembelajaran/jenjang/edit/' + id,
             type:'get',
             dataType:'json',
             success:function(response){
                 $('#id_edit').val(id);
-                $('#kurikulum').val(response.kurikulum);
-                $('#edit_kurikulum').modal('show');
+                $('#jenjang').val(response.jenjang);
+                $('#edit_jenjang').modal('show');
             },
             error:function(){
                 alert('error');
