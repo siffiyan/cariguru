@@ -15,8 +15,8 @@ class CreateShareProfitTable extends Migration
     {
         Schema::create('share_profit', function (Blueprint $table) {
             $table->id();
-            $table->float('owner');
-            $table->float('mitra');
+            $table->integer('owner');
+            $table->integer('mitra');
             $table->integer('admin_id');
             $table->timestamps();
 

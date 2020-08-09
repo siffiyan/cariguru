@@ -8,18 +8,22 @@
 		<!-- Slimscroll JS -->
         <script src="{{asset('template/mentoring/html/admin/assets/plugins/slimscroll/jquery.slimscroll.min.js')}}"></script>
 
-        	<!-- Select2 JS -->
+        <!-- Select2 JS -->
 		<script src="{{asset('template/mentoring/html/admin/assets/js/select2.min.js')}}"></script>
 
         <!-- Datatables JS -->
 		<script src="{{asset('template/mentoring/html/admin/assets/plugins/datatables/jquery.dataTables.min.js')}}"></script>
 		<script src="{{asset('template/mentoring/html/admin/assets/plugins/datatables/datatables.min.js')}}"></script>
 
-		<script type="text/javascript">
+		<!-- Mask JS -->
+		<script src="{{asset('template/mentoring/html/admin/assets/js/jquery.maskedinput.min.js')}}"></script>
+        <script src="{{asset('template/mentoring/html/admin/assets/js/mask.js')}}"></script>
+
+<!-- 		<script type="text/javascript">
 			$('#tabel1').dataTable();
 			$('#tabel2').dataTable();
 			$('#tabel3').dataTable();
-		</script>
+		</script> -->
 
 		@yield('js')
 		
