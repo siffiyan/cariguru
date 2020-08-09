@@ -50,7 +50,7 @@ Route::prefix('admin')->group(function () {
 	});
 
 	Route::prefix('blog')->group(function () {
-
+		Route::get('dashboard', 'Admin\BlogController@index');
 	});
 
 });

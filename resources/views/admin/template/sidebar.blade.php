@@ -28,7 +28,7 @@
     </ul>
 </li>
 <li> 
-    <a href="/admin/blog"><span>Blog</span></a>
+    <a href="/admin/blog/dashboard"><span>Blog</span></a>
 </li>    
 </ul>
 </div>
