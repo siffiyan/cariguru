@@ -10,12 +10,11 @@
 <a href="/admin/manajemen_user"><span>Manajemen User</span></a>
 </li>
 <li class="submenu"> 
-	<a href="#"><span>Setting</span> <span class="menu-arrow"></span></a>
+	<a href="#"><span>Setting</span> </a>
 	<ul style="display: none;">
-		<li><a href="blog.html"> Blog </a></li>
-		<li><a href="blog-details.html"> Blog Details </a></li>
-		<li><a href="add-blog.html"> Add Blog </a></li>
-		<li><a href="edit-blog.html"> Edit Blog </a></li>
+		<li><a href="/admin/setting/biaya_les"> Setting Biaya Les</a></li>
+		<li><a href="/admin/setting/atur_diskon"> Atur Diskon </a></li>
+		<li><a href="/admin/setting/share_profit"> Share Profit </a></li>
 	</ul>
 </li>
 <li class="submenu">
