@@ -51,10 +51,15 @@ Route::prefix('admin')->group(function () {
 
 	Route::prefix('blog')->group(function () {
 		Route::get('dashboard', 'Admin\BlogController@index');
+		Route::view('add', 'admin.blog.add');
 	});
 
 });
 
 Route::prefix('tentor')->group(function () {
 
+});
+
+Route::prefix('dashboard')->group(function() {
+	Route::view('index','landing_page.index');
 });

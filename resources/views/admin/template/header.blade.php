@@ -16,7 +16,9 @@
         <link rel="stylesheet" href="{{asset('template/mentoring/html/admin/assets/plugins/fontawesome/css/fontawesome.min.css')}}">
 		
 		<!-- Feathericon CSS -->
-        <link rel="stylesheet" href="{{asset('template/mentoring/html/admin/assets/css/feathericon.min.css')}}">\
+		<link rel="stylesheet" href="{{asset('template/mentoring/html/admin/assets/css/feathericon.min.css')}}">
+
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
         <!-- Datatables CSS -->
 		<link rel="stylesheet" href="{{asset('template/mentoring/html/admin/assets/plugins/datatables/datatables.min.css')}}">
