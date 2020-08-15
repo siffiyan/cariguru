@@ -2,6 +2,18 @@
 
 @section('title','Manajemen User')
 
+@section('css')
+
+<style type="text/css">
+.nav-tabs.nav-tabs-solid > li > a.active, .nav-tabs.nav-tabs-solid > li > a.active:hover, .nav-tabs.nav-tabs-solid > li > a.active:focus {
+background-color: #3dd598 !important;
+border-color: #3dd598 !important;
+color: #fff;
+}
+}
+</style>
+@endsection
+
 @section('content')
 
 <div class="col-sm-12">
@@ -23,7 +35,7 @@
     </div>
 @endif
 
-<button id="button_tambah_user" class="btn btn-danger">Tambah User</button>
+<button id="button_tambah_user" class="btn btn-primary"><i class="fe fe-plus"></i> &nbsp;Tambah User</button>
 
 <p></p>
 	
@@ -109,8 +121,8 @@
 	<td>{{$r->nama}}</td>
 	<td>{{$r->email}}</td>
 	<td>
-		<button class="btn btn-primary" onclick="edit({{$r->id}})">edit</button>
-		<button class="btn btn-danger" onclick="hapus({{$r->id}})">delete</button>
+		<button class="btn btn-success" onclick="edit({{$r->id}})"><i class="fe fe-pencil"></i></button>
+		<button class="btn btn-danger" onclick="hapus({{$r->id}})"><i class="fe fe-trash"></i></button>
 </td>
 </tr>
 @endforeach
@@ -126,7 +138,7 @@
 </div>
 
 <!-- Modal Tambah User -->
-<form action="/admin/manajemen_user/tambah_user" method="post">
+<form action="/admin/manajemen_user" method="post">
 {{csrf_field()}}
 <div class="modal fade" id="modal_tambah_user" aria-hidden="true" role="dialog">
 <div class="modal-dialog" role="document" >
@@ -184,7 +196,7 @@
 <!-- Modal Tambah User -->
 
 <!-- Edit Details Modal -->
-<form action="/admin/manajemen_user/edit_action_admin" method="post">
+<form action="/admin/manajemen_user/update" method="post">
 <input type="hidden" name="_method" value="put">
 {{csrf_field()}}
 <div class="modal fade" id="edit_modal" aria-hidden="true" role="dialog">
@@ -222,7 +234,7 @@
 <!-- /Edit Details Modal -->
 
 <!-- Delete Model -->
-<form action="/admin/manajemen_user/delete_admin" method="post">
+<form action="/admin/manajemen_user/delete" method="post">
 <input type="hidden" name="_method" value="delete">
 {{csrf_field()}}
 <div class="modal fade" id="delete_modal" role="dialog" style="display: none;" aria-hidden="true">
@@ -268,7 +280,7 @@
 
 	function edit(id){
 		$.ajax({
-			url:'/admin/manajemen_user/edit_admin/'+id,
+			url:'/admin/manajemen_user/'+id+'/edit',
 			type:'get',
 			dataType:'json',
 			success:function(response){

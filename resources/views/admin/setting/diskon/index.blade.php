@@ -20,7 +20,7 @@
 </div>
 @endif
 
-<button id="button_tambah_diskon" class="btn btn-danger">Tambah Diskon</button>
+<button id="button_tambah_diskon" class="btn btn-primary"><i class="fe fe-plus"></i> &nbsp;Tambah Diskon</button>
 <p></p>
 
 <div class="card">
@@ -63,7 +63,7 @@
 </div>
 
 <!-- Modal Tambah Diskon -->
-<form action="/admin/setting/create_atur_diskon" method="post">
+<form action="/admin/setting/atur_diskon" method="post">
 {{csrf_field()}}
 <div class="modal fade" id="modal_tambah_diskon" aria-hidden="true" role="dialog">
 <div class="modal-dialog" role="document" >
@@ -109,10 +109,10 @@
 </div>
 </div>
 </form>
-<!-- Modal Tambah User -->
+<!-- Modal Tambah Diskon -->
 
 <!-- Modal Edit Diskon -->
-<form action="/admin/setting/edit_atur_diskon" method="post">
+<form action="/admin/setting/atur_diskon/update" method="post">
 <input type="hidden" name="_method" value="put">
 {{csrf_field()}}
 <div class="modal fade" id="modal_edit_diskon" aria-hidden="true" role="dialog">
@@ -163,7 +163,7 @@
 <!-- Modal Tambah User -->
 
 <!-- Delete Model -->
-<form action="/admin/setting/delete_atur_diskon" method="post">
+<form action="/admin/setting/atur_diskon/delete" method="post">
 <input type="hidden" name="_method" value="delete">
 {{csrf_field()}}
 <div class="modal fade" id="delete_modal" role="dialog" style="display: none;" aria-hidden="true">
@@ -197,7 +197,7 @@
 
 	function edit(id){
 		$.ajax({
-			url:'/admin/setting/get_detail_diskon/'+id,
+			url:'/admin/setting/atur_diskon/'+id+'/edit',
 			type:'get',
 			dataType:'json',
 			success:function(response){

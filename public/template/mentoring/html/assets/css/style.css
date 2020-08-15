@@ -1170,8 +1170,8 @@ button.bg-danger:hover {
 .nav-tabs.nav-tabs-solid > .active > a,
 .nav-tabs.nav-tabs-solid > .active > a:hover,
 .nav-tabs.nav-tabs-solid > .active > a:focus {
-	background-color: #1e88e5;
-	border-color: #1e88e5;
+	background-color: #28b77e;
+	border-color: #28b77e;
 	color: #fff;
 }
 .tab-content {
@@ -1202,8 +1202,8 @@ button.bg-danger:hover {
 .nav-tabs.nav-tabs-solid > li > a.active,
 .nav-tabs.nav-tabs-solid > li > a.active:hover,
 .nav-tabs.nav-tabs-solid > li > a.active:focus {
-	background-color: #1e88e5;
-	border-color: #1e88e5;
+	background-color: #28b77e;
+	border-color: #28b77e;
 	color: #fff;
 }
 .nav-tabs.nav-tabs-solid.nav-tabs-rounded {

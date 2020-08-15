@@ -6,11 +6,11 @@
 			
 				<!-- Logo -->
                 <div class="header-left">
-                    <a href="index.html" class="logo">
-						<img src="{{asset('template/mentoring/html/admin/assets/img/logo.png')}}" alt="Logo">
+                    <a href="index.html" class="logo" style="color:#e51453;font-family: nunito;font-size: 20px;font-weight: 700;">
+						<img src="{{asset('logo/logo.png')}}" alt="Logo"> CARIGURU
 					</a>
 					<a href="index.html" class="logo logo-small">
-						<img src="{{asset('template/mentoring/html/admin/assets/img/logo-small.png')}}" alt="Logo" width="30" height="30">
+						<img src="{{asset('logo/logo.png')}}" alt="Logo" width="30" height="30">
 					</a>
                 </div>
 				<!-- /Logo -->

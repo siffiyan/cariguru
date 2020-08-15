@@ -22,7 +22,7 @@ class ManajemenUserController extends Controller
         return view('admin.manajemen_user.index',$data);
     }
 
-    public function delete_admin(Request $request){
+    public function destroy(Request $request){
 
     	$id = $request->id;
 
@@ -33,13 +33,13 @@ class ManajemenUserController extends Controller
 
     }
 
-    public function edit_admin($id){
+    public function edit($id){
 
     	$data = Admin::find($id);
     	echo json_encode($data);	
     }
 
-     public function edit_action_admin(Request $request){
+     public function update(Request $request){
 
         $id = $request->id;
 
@@ -63,7 +63,7 @@ class ManajemenUserController extends Controller
 
     }
 
-    public function tambah_user(Request $request){
+    public function store(Request $request){
 
         if($request->role == 'admin'){
 

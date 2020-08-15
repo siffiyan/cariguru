@@ -23,7 +23,7 @@
         </div>
     @endif
 
-    <button id="button_tambah_mapel" class="btn btn-danger mb-3"><i class="fe fe-plus"></i> &nbsp; Tambah Mata Pelajaran</button>
+    <button id="button_tambah_mapel" class="btn btn-primary mb-3"><i class="fe fe-plus"></i> &nbsp; Tambah Mata Pelajaran</button>
     
     <div class="card">
         <div class="card-header">
@@ -165,7 +165,7 @@
                 <div class="modal-body">
                     <div class="form-content p-2">
                         <h4 class="modal-title">Delete</h4>
-                        <input type="text" name="id" id="id_delete">
+                        <input type="hidden" name="id" id="id_delete">
                         <p class="mb-4">Are you sure want to delete?</p>
                         <button type="submit" class="btn btn-primary">Delete </button>
                         <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
