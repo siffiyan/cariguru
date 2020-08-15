@@ -17,6 +17,7 @@ class CreateBlogTable extends Migration
             $table->id();
             $table->string('judul',50);
             $table->text('content');
+            $table->enum('isactive', ['0', '1']);
             $table->enum('status', ['approve', 'reject', 'pending']);
             $table->integer('admin_id');
             $table->foreign('admin_id')->references('id')->on('admin')->onDelete('cascade');
