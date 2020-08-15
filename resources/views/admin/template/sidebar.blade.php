@@ -18,7 +18,7 @@
 	</ul>
 </li>
 <li class="submenu">
-    <a href="#"><span> Pembelajaran</span> <span class="menu-arrow"></span></a>
+    <a href="#"><span> Pembelajaran</span></a>
     <ul style="display: none;">
         <li><a href="invoice-report.html">Evaluasi Belajar</a></li>
         <li><a href="/admin/pembelajaran/mapel">Mata Pelajaran</a></li>

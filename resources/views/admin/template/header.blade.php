@@ -29,7 +29,12 @@
 		<!-- Main CSS -->
         <link rel="stylesheet" href="{{asset('template/mentoring/html/admin/assets/css/style.css')}}">
 
-        
+        <style type="text/css">
+        	tr th{
+        		background-color:#e51453;
+        		color:white;
+        	}
+        </style>
 		
 		<!--[if lt IE 9]>
 			<script src="assets/js/html5shiv.min.js"></script>

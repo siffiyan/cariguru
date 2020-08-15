@@ -24,7 +24,7 @@
 
 <div class="card-body">
 
-<form action="/admin/setting/share_profit/edit/{{$profit->id}}" method="post">
+<form action="/admin/setting/share_profit/{{$profit->id}}" method="post">
 <input type="hidden" name="_method" value="put">
 {{csrf_field()}}
 

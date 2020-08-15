@@ -17,39 +17,33 @@ Route::prefix('admin')->group(function () {
 
 	Route::get('dashboard','Admin\DashboardController@index');
 
-	Route::prefix('manajemen_user')->group(function () {
-
-		Route::get('','Admin\ManajemenUserController@index');
-
-		Route::delete('delete_admin','Admin\ManajemenUserController@delete_admin');
-
-		Route::get('edit_admin/{id}','Admin\ManajemenUserController@edit_admin');
-
-		Route::put('edit_action_admin','Admin\ManajemenUserController@edit_action_admin');
-
-		Route::post('tambah_user','Admin\ManajemenUserController@tambah_user');
-
-	});
+	Route::get('manajemen_user','Admin\ManajemenUserController@index');
+	Route::delete('manajemen_user/delete','Admin\ManajemenUserController@destroy');
+	Route::get('manajemen_user/{id}/edit','Admin\ManajemenUserController@edit');
+	Route::put('manajemen_user/update','Admin\ManajemenUserController@update');
+	Route::post('manajemen_user','Admin\ManajemenUserController@store');
 
 	Route::prefix('setting')->group(function () {
 
-		Route::get('share_profit','Admin\SettingController@share_profit');
+		Route::get('share_profit','Admin\ShareProfitController@index');
+		Route::put('share_profit/{id}','Admin\ShareProfitController@update');
 
-		Route::put('share_profit/edit/{id}','Admin\SettingController@edit_share_profit');
+		Route::get('atur_diskon','Admin\AturDiskonController@index');
+		Route::post('atur_diskon','Admin\AturDiskonController@store');
+		Route::get('atur_diskon/{id}/edit','Admin\AturDiskonController@edit');
+		Route::put('atur_diskon/update','Admin\AturDiskonController@update');
+		Route::delete('atur_diskon/delete','Admin\AturDiskonController@destroy');
 
-		Route::get('atur_diskon','Admin\SettingController@atur_diskon');
-
-		Route::post('create_atur_diskon','Admin\SettingController@create_atur_diskon');
-
-		Route::get('get_detail_diskon/{id}','Admin\SettingController@get_detail_diskon');
-
-		Route::put('edit_atur_diskon','Admin\SettingController@edit_atur_diskon');
-
-		Route::delete('delete_atur_diskon','Admin\SettingController@delete_atur_diskon');
+		Route::get('biaya_les','Admin\BiayaLesController@index');
+		Route::post('biaya_les','Admin\BiayaLesController@store');
+		Route::get('biaya_les/{id}/edit','Admin\BiayaLesController@edit');
+		Route::put('biaya_les/update','Admin\BiayaLesController@update');
+		Route::delete('biaya_les','Admin\BiayaLesController@destroy');
 
 	});
 
 	Route::prefix('pembelajaran')->group(function () {
+		
 		Route::get('jenjang','Admin\JenjangController@index');
 		Route::delete('jenjang','Admin\JenjangController@destroy');
 		Route::post('jenjang','Admin\JenjangController@store');
@@ -74,6 +68,14 @@ Route::prefix('admin')->group(function () {
 
 	Route::prefix('blog')->group(function () {
 		Route::get('dashboard', 'Admin\BlogController@index');
+	});
+
+});
+
+Route::prefix('tentor')->group(function () {
+
+	Route::get('dashboard',function(){
+		return view('tentor.template.master');
 	});
 
 });

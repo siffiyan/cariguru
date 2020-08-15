@@ -23,7 +23,7 @@
         </div>
     @endif
 
-    <button id="button_tambah_jenjang" class="btn btn-danger mb-3"><i class="fe fe-plus"></i> &nbsp; Tambah Jenjang</button>
+    <button id="button_tambah_jenjang" class="btn btn-primary mb-3"><i class="fe fe-plus"></i> &nbsp; Tambah Jenjang</button>
     
     <div class="card">
         <div class="card-header">
