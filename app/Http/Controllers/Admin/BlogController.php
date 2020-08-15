@@ -27,7 +27,7 @@ class BlogController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.blog.store');
     }
 
     /**
@@ -38,7 +38,32 @@ class BlogController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validator = Validator::make($request->all(), [
+            'judul' => 'required',
+            // 'image' => 'required|file|image|mimes:jpeg,png,jpg|max:2048',
+            'kategori' => 'required',
+            'content' => 'required'
+        ]);
+
+        if($validator->fails()){
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
+
+        $data = $request->input('image');
+        $photo = $request->file('image')->getClientOriginalName();
+        var_dump($request->file('image'));
+        $destination = base_path() . '/public/berkas/blog';
+        $request->file('image')->move($destination, $photo);
+
+        Blog::create(
+            [
+                'judul' => $request->judul,
+                'image' => $photo,
+                'kategori' => $request->kategori,
+                'content' => $request->content,
+            ]
+        );
+        return redirect('admin/blog/dashboard')->with('msg', 'data Blog berhasil ditambahkan'); 
     }
 
     /**
@@ -49,7 +74,7 @@ class BlogController extends Controller
      */
     public function show($id)
     {
-        //
+        
     }
 
     /**
@@ -60,7 +85,9 @@ class BlogController extends Controller
      */
     public function edit($id)
     {
-        //
+        $data['blog'] = Blog::find($id);
+
+        return view('admin.blog.update',$data);
     }
 
     /**
@@ -72,7 +99,24 @@ class BlogController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $validator = Validator::make($request->all(), [
+            'judul' => 'required',
+            // 'image' => 'required|file|image|mimes:jpeg,png,jpg|max:2048',
+            'kategori' => 'required',
+            'content' => 'required'
+        ]);
+
+        if($validator->fails()){
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
+
+        $blog = Blog::find($id);
+        $blog->judul = e($request->input('judul'));
+        $blog->kategori = e($request->input('kategori'));
+        $blog->content = e($request->input('content'));
+        $blog->save();
+
+        return redirect('admin/blog/dashboard')->with('msg', 'data Blog berhasil diubah'); ;
     }
 
     /**
@@ -81,8 +125,29 @@ class BlogController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request)
     {
-        //
+        Blog::destroy($request->id);
+        return redirect()->back()->with('msg','data Blog berhasil dihapus');
+    }
+
+    public function inactive(Request $request)
+    {
+        $blog = Blog::find($request->id);
+        $blog->isactive = 0;
+        $blog->save();
+
+        return redirect()->back()->with('msg','data Blog berhasil di Non-aktifkan');
+
+    }
+
+    public function active(Request $request)
+    {
+        $blog = Blog::find($request->id);
+        $blog->isactive = 1;
+        $blog->save();
+
+        return redirect()->back()->with('msg','data Blog berhasil di Aktifkan');
+
     }
 }

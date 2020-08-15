@@ -73,8 +73,11 @@ Route::prefix('admin')->group(function () {
 	});
 
 	Route::prefix('blog')->group(function () {
+		Route::resource('blog', 'Admin\BlogController');
 		Route::get('dashboard', 'Admin\BlogController@index');
-		Route::view('add', 'admin.blog.add');
+		Route::delete('blog','Admin\BlogController@destroy');
+		Route::post('inactive', 'Admin\BlogController@inactive');
+		Route::post('active', 'Admin\BlogController@active');
 	});
 
 });
