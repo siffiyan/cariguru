@@ -52,4 +52,15 @@ class AuthController extends Controller
 
 	}
 
+	public function logout(Request $request){
+
+		$request->session()->forget('email');
+        $request->session()->forget('id');
+        $request->session()->forget('login');
+        $request->session()->flush();
+        
+	    return redirect('/tentor/login')->with('success','Anda berhasil logout !');
+
+	}
+
 }

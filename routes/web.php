@@ -77,6 +77,7 @@ Route::prefix('tentor')->group(function () {
 
 	Route::get('login','Tentor\AuthController@login');
 	Route::post('login','Tentor\AuthController@login_action');
+	Route::get('logout','Tentor\AuthController@logout');
 
 	Route::get('dashboard','Tentor\DashboardController@index');
 	
