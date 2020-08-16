@@ -67,21 +67,29 @@ Route::prefix('admin')->group(function () {
 	});
 
 	Route::prefix('blog')->group(function () {
-		Route::resource('blog', 'Admin\BlogController');
+		Route::resource('blogAdmin', 'Admin\BlogController');
 		Route::get('dashboard', 'Admin\BlogController@index');
 		Route::delete('blog','Admin\BlogController@destroy');
-		Route::post('inactive', 'Admin\BlogController@inactive');
-		Route::post('active', 'Admin\BlogController@active');
+		Route::patch('inactive', 'Admin\BlogController@inactive');
+		Route::patch('active', 'Admin\BlogController@active');
+		Route::put('approve/{id}', 'Admin\BlogController@approve');
+		Route::put('reject/{id}', 'Admin\BlogController@reject');
 	});
 
 });
 
 Route::prefix('tentor')->group(function () {
 
+	Route::prefix('blog')->group(function() {
+		Route::resource('blog', 'Tentor\BlogController');
+		Route::get('index','Tentor\BlogController@index');
+		Route::delete('delete','Tentor\BlogController@destroy');
+	});
+	
 });
 
 Route::prefix('dashboard')->group(function() {
 
-	Route::view('index','landing_page.index');
+	Route::view('index','landing_page.index2');
 	
 });

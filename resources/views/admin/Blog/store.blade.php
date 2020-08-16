@@ -13,7 +13,7 @@
                     <!-- Add details -->
                     <div class="row">
                         <div class="col-12 blog-details">
-                            <form action="{{route('blog.store')}}" method="post" enctype="multipart/form-data">
+                            <form action="{{route('blogAdmin.store')}}" method="post" enctype="multipart/form-data">
                                 @csrf
                                 <input type="hidden" name="status" value="approve">
                                 <div class="row">

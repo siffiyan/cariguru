@@ -13,7 +13,7 @@
                     <!-- Add details -->
                     <div class="row">
                         <div class="col-12 blog-details">
-                            <form action="{{route('blog.update',$blog->id)}}" method="post" enctype="multipart/form-data">
+                            <form action="{{route('blogAdmin.update',$blog->id)}}" method="post" enctype="multipart/form-data">
                                 @method('put')
                                 @csrf
                                 <input type="hidden" name="status" value="approve">
@@ -84,7 +84,7 @@
     // var data = CKEDITOR.instances.value.getData();
     $(document).ready(function(){
         $('#kategori').val('{{$blog->kategori}}');
-        CKEDITOR.instances['content'].setData('{!! $blog->content !!}');
+        CKEDITOR.instances['content'].setData({!! $blog->content !!});
     });
 </script>
 @endsection

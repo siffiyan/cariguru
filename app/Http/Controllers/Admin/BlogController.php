@@ -40,7 +40,7 @@ class BlogController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'judul' => 'required',
-            // 'image' => 'required|file|image|mimes:jpeg,png,jpg|max:2048',
+            'image' => 'required|file|image|mimes:jpeg,png,jpg|max:2048',
             'kategori' => 'required',
             'content' => 'required'
         ]);
@@ -74,7 +74,8 @@ class BlogController extends Controller
      */
     public function show($id)
     {
-        
+        $data['blog'] = Blog::find($id);
+        return view('admin.blog.detail',$data);
     }
 
     /**
@@ -134,20 +135,43 @@ class BlogController extends Controller
     public function inactive(Request $request)
     {
         $blog = Blog::find($request->id);
-        $blog->isactive = 0;
+        $blog->isactive = '0';
         $blog->save();
 
         return redirect()->back()->with('msg','data Blog berhasil di Non-aktifkan');
-
     }
 
     public function active(Request $request)
     {
         $blog = Blog::find($request->id);
-        $blog->isactive = 1;
+        $blog->isactive = '1';
         $blog->save();
 
         return redirect()->back()->with('msg','data Blog berhasil di Aktifkan');
 
+    }
+
+    public function approve($id)
+    {
+        $blog = Blog::find($id);
+        $blog->status = 'approve';
+        $blog->save();
+
+        return json_encode([
+            "code" => 200,
+            "response" => 'data Blog berhasil di Approve',
+        ]);
+    }
+
+    public function reject($id)
+    {
+        $blog = Blog::find($id);
+        $blog->status = 'reject';
+        $blog->save();
+
+        return json_encode([
+            "code" => 200,
+            "response" => 'data Blog berhasil di Reject',
+        ]);
     }
 }

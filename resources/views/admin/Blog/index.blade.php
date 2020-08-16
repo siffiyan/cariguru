@@ -1,12 +1,26 @@
 @extends('admin.template.master')
 
 @section('title', 'Blog')
-    
+
+@section('css')
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.rtl.min.css"/> 
+@endsection
+
 @section('content')
+
+<style>
+    .dash{
+        padding: 20px;
+        border: 2px dashed #b7c9cc;
+        color: #738f93;
+    }
+</style>
 
 <div class="col-md-12">
 
-    <a href="{{route('blog.create')}}" class="btn btn-danger mb-3"><i class="fe fe-plus"></i> &nbsp; Tambah Blog</a>
+    <a href="{{route('blogAdmin.create')}}" class="btn btn-danger mb-3"><i class="fe fe-plus"></i> &nbsp; Tambah Blog</a>
+
+    <div class="alertAjax"></div>
 
     @if ($message = Session::get('msg'))
         <div class="alert alert-success alert-block">
@@ -63,7 +77,7 @@
                             </td>
                             <td class="text-center">
                                 @if($a->status == 'pending')
-                                    <a class="badge badge-pill bg-warning inv-badge text-white" style="cursor:pointer">pending</a>
+                                    <a onclick="approval({{$a->id}})" class="badge badge-pill bg-warning inv-badge text-white" style="cursor:pointer">pending</a>
                                     @elseif($a->status == 'approve')
                                     <a class="badge badge-pill bg-success inv-badge text-white" style="cursor:pointer">approve</a>
                                     @else
@@ -71,7 +85,8 @@
                                 @endif
                             </td>
                             <td>
-                                <a href="{{route('blog.edit',$a->id)}}" class="btn btn-success"><i class="fe fe-pencil"></i></a>
+                                <a href="{{route('blogAdmin.show',$a->id)}}" class="btn btn-info"><i class="fe fe-eye"></i></a>
+                                <a href="{{route('blogAdmin.edit',$a->id)}}" class="btn btn-success"><i class="fe fe-pencil"></i></a>
                                 <button class="btn btn-danger" onclick="hapus({{$a->id}})"><i class="fe fe-trash"></i></button>
                             </td>
                         </tr>
@@ -107,7 +122,7 @@
 
 <!-- Active Model -->
 <form action="/admin/blog/active" method="post">
-    @method('put');
+    @method('patch');
     @csrf
     <div class="modal fade" id="active_modal" role="dialog" style="display: none;" aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -129,7 +144,7 @@
 
 <!-- Active Model -->
 <form action="/admin/blog/inactive" method="post">
-    @method('put');
+    @method('patch');
     @csrf
     <div class="modal fade" id="inactive_modal" role="dialog" style="display: none;" aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -149,10 +164,35 @@
 </form>
 <!-- Active Model -->
 
+<div id="approval" class="modal fade bs-modal-lg" tabindex="-1" aria-hidden="true">
+	<div class="modal-dialog custom-modal-size-sm">
+		<form>
+			<div class="modal-content">
+				<div class="modal-body">
+					<center>
+						<h4>Approval Blog</h4>
+					</center>
+					<hr>
+					<center>
+                        <h5 id="id_approved"></h5>
+                        <div class="dash text-center"><h6 style="margin-bottom:0 !important"> <b>make sure your choice is correct because your choice cannot be changed again</b></h6></div>
+					</center>
+                    <div class="row" style="margin-top: 25px;margin-left:10px;margin-right:10px">
+                        <button class="btn btn-success btn-block btn-sm" id="btn-approve">Approve</button>
+                        <button class="btn btn-danger btn-block btn-sm" id="btn-reject">Reject</button>
+					</div>
+				</div>
+			</div>
+		</form>
+	</div>
+</div>
+
 
 @endsection
 
 @section('js')
+
+<script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>   
 
 <script>
     function hapus(id){
@@ -169,6 +209,52 @@
         $('#id_inactive').val(id);
         $('#inactive_modal').modal('show');
     }
+
+    function approval(id){
+        $('#id_approved').val(id);
+        $('#approval').modal('show');
+    }
+
+    $('#btn-approve').click(function(e){
+        e.preventDefault();
+        $.ajax({
+            url: "/admin/blog/approve/" + $('#id_approved').val(),
+            type: "PUT",
+            dataType: 'JSON',
+            data: { _token: "{{ csrf_token() }}", _method: "PUT" },
+            success: function( data, textStatus, jQxhr ){
+                if(data.code == 200){
+                    alertify.success(data.response);
+                    window.setTimeout(function(){location.reload()},2000);
+                }
+            },
+            error: function( jqXhr, textStatus, errorThrown ){
+                console.log( errorThrown );
+                console.warn(jqXhr.responseText);
+            },
+        });
+    })
+
+    $('#btn-reject').click(function(e){
+        e.preventDefault();
+        $.ajax({
+            url: "/admin/blog/reject/" + $('#id_approved').val(),
+            type: "PUT",
+            dataType: 'JSON',
+            data: { _token: "{{ csrf_token() }}", _method: "PUT" },
+            success: function( data, textStatus, jQxhr ){
+                if(data.code == 200){
+                    alertify.success(data.response);
+                    window.setTimeout(function(){location.reload()},2000);
+                }
+            },
+            error: function( jqXhr, textStatus, errorThrown ){
+                console.log( errorThrown );
+                console.warn(jqXhr.responseText);
+            },
+        });
+    })
+    
 </script>
 
 @endsection
