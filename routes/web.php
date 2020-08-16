@@ -90,6 +90,6 @@ Route::prefix('tentor')->group(function () {
 
 Route::prefix('dashboard')->group(function() {
 
-	Route::view('index','landing_page.index2');
+	Route::view('/','landing_page.index2');
 	
 });
