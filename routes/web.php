@@ -75,6 +75,11 @@ Route::prefix('admin')->group(function () {
 
 Route::prefix('tentor')->group(function () {
 
+	Route::get('login','Tentor\AuthController@login');
+	Route::post('login','Tentor\AuthController@login_action');
+
+	Route::get('dashboard','Tentor\DashboardController@index');
+	
 });
 
 Route::prefix('dashboard')->group(function() {
