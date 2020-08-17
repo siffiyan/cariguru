@@ -1,185 +1,476 @@
-@extends('landing_page.layout.app')
+<!DOCTYPE html>
+<html lang="en">
 
-@section('content')
-    <!-- Home Banner -->
-    <section class="section section-search">
-        <div class="container">
-            <div class="banner-wrapper m-auto text-center">
-                <div class="banner-header">
-                    <h1>Belajar Lebih <span>Menyenangkan</span></h1>
-                    <p>Temukan guru privat terbaik sekarang juga,</p>
-                    <p>Kamu bisa les berkelompok dengan teman sekelasmu!</p>
-                    <p>Nikmati layanan evaluasi belajar dari kami</p>
-                </div>
-                
-                <!-- Search -->
-                <div class="search-box">
-                    <form action="search.html">
-                        <div class="form-group search-location">
-                            <input type="text" class="form-control" placeholder="Search Location">
-                        </div>
-                        <div class="form-group search-info">
-                            <input type="text" class="form-control" placeholder="Search School, Online educational centers, etc">
-                        </div>
-                        <button type="submit" class="btn btn-primary search-btn"><i><img src="assets/img/search-submit.png" alt=""></i> <span>Search</span></button>
-                    </form>
-                </div>
-                <!-- /Search -->
-                
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>CariGuru</title>
+  <meta content="" name="descriptison">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="{{asset('logo/logo.png')}}" rel="icon">
+  <link href="{{asset('logo/logo.png')}}" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,600,600i,700,700i,900" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{{asset('template/frontend/vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
+  <link href="{{asset('template/frontend/vendor/icofont/icofont.min.css')}}" rel="stylesheet">
+  <link href="{{asset('template/frontend/vendor/boxicons/css/boxicons.min.css')}}" rel="stylesheet">
+  <link href="{{asset('template/frontend/vendor/animate.css/animate.min.css')}}" rel="stylesheet">
+  <link href="{{asset('template/frontend/vendor/venobox/venobox.css')}}" rel="stylesheet">
+  <link href="{{asset('template/frontend/vendor/owl.carousel/assets/owl.carousel.min.css')}}" rel="stylesheet">
+  <link href="{{asset('template/frontend/vendor/aos/aos.css')}}" rel="stylesheet">
+  <link href=" https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+ 
+
+  <!-- Template Main CSS File -->
+  <link href="{{asset('template/public_frontend/css/style.css')}}" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <!-- ======= Top Bar ======= -->
+
+  <!-- ======= Header ======= -->
+  <header id="header">
+    <div class="container">
+
+      <div class="logo float-left">
+        <h1 class="text-light"><a href=""><span><img src="{{asset('logo/logo.png')}}" alt="" style="margin-top: -10px;"></span></a></h1>
+        <!-- Uncomment below if you prefer to use an image logo -->
+        <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+      </div>
+
+      <nav class="nav-menu float-right d-none d-lg-block">
+        <ul>
+          <li><a href="#about">Tentang Kami</a></li>
+          <li><a href="#guruterbaik">Guru Terbaik</a></li>
+          <li><a href="#meet">Guru Meet</a></li>
+          <li><a href="#" style="color: #E51453;"><b>DAFTAR</b></a></li>
+          <li><a href="/tentor/login" style="background: #E51453; color: #fff; border-radius: 4px; margin: 0 15px; padding: 10px 25px;">Masuk</a></li>
+        </ul>
+      </nav><!-- .nav-menu -->
+
+    </div>
+  </header><!-- End Header -->
+
+  <section id="hero">
+    <div class="hero-container">
+      <div id="heroCarousel" class="carousel slide carousel-fade" data-ride="carousel">
+  
+        <ol class="carousel-indicators" id="hero-carousel-indicators"></ol>
+  
+        <div class="carousel-inner" role="listbox">
+  
+          <!-- Slide 1 -->
+          <div class="carousel-item active" style="background-image: url({{asset('logo/home.png')}});">
+            <div class="carousel-container">
+              <div class="carousel-content container">
+                <h2 class="animate__animated animate__fadeInDown">Belajar Lebih Menyenangkan</h2>
+                <p class="animate__animated animate__fadeInUp">Temukan guru privat terbaik sekarang juga,</p>
+                <p class="animate__animated animate__fadeInUp">Kamu bisa les berkelompok dengan teman sekelasmu!</p>
+                <p class="animate__animated animate__fadeInUp">Nikmati layanan evaluasi belajar dari kami</p>
+                <!-- <div>
+                  <a href="#about" class="btn-get-started animate__animated animate__fadeInUp scrollto">Read More</a>
+                </div> -->
+              </div>
             </div>
+          </div>
         </div>
+      </div>
+    </div>
+    <div>
+      CariGuru
+    </div>
+  </section>
+  <main id="main">
+    <section class="counts section-bg">
+      <div class="container">
+          <div class="section-title">
+            <p>Bingung? Yuk tanya kita di Whatsapp &nbsp; <a href="https://api.whatsapp.com/send?phone=6282231826490&text=Halo Cari Guru" target="_blank" class="btn btn-danger rounded-pill" style="background-color: #13c347;border-color: #13c347"> <i class="fa fa-whatsapp"></i> Konsultasi Sekarang!</a></p>
+          </div>
+      </div>
     </section>
-    <!-- /Home Banner -->
-
-    <section class="section how-it-works">
-        <div class="container">
-            <div class="section-header text-center">
-                <h2>Mata Pelajaran Favorit ?</h2>
-                <p class="sub-title">Beberapa Pilihan Mata Pelajaran Favorit</p>
-                
-            </div>
-            <div class="row">
-                @for ($i = 0; $i < 8; $i++)
-                <div class="col-12 col-md-6 col-lg-3 mb-3">
-                    <div class="feature-box text-center">					
-                        <div class="feature-header">
-                            <div class="feature-icon">
-                                <span class="circle"></span>
-                                <i><img src="{{asset('template/mentoring/html/assets/img/icon-1.png')}}" alt=""></i>
-                            </div>	
-                            <div class="feature-cont">
-                                <div class="feature-text">
-                                    Fisika
-                                </div>
-                            </div>	
-                        </div>
-                    </div>
-                </div>
-                @endfor   
-            </div>
-            <div class="view-all text-center"><button class="btn btn-outline-primary mt-3">Lihat Lebih BANYAK</button></div>	
+    <section id="mapel" class="team">
+      <div class="container">
+        <div class="section-title">
+          <h2>Mata Pelajaran Favorit</h2>
+          <p>Beberapa Pilihan Mata Pelajaran Favorit</p>
         </div>
-    </section>
-
-    <section class="section popular-courses">
-        <div class="container">
-            <div class="section-header text-center">
-                <h2>Guru Pilihan</h2>
-                <p class="sub-title">Beberapa Guru Pilihan Kami</p>
+        <div class="col-lg-12">
+        <div class="row" style="width: 100%; margin-bottom: -50px;">
+  
+          <div class="col-xl col-lg-2 col-md-6" data-aos="fade-up">
+            <div class="member">
+              <div class="pic" style="background: #FFF9FB;border: 1px solid #E51453;box-sizing: border-box;border-radius: 12px;"><img src="{{asset('logo/mapel/ekonomi.png')}}" class="img-fluid" style="padding: 60px;" alt="">
+              </div>
             </div>
-            <div class="owl-carousel owl-theme">
-                @for ($i = 0; $i < 16; $i++)
-                <div class="course-box">
-                    <div class="product">
-                        <div class="product-img">
-                            <a href="profile.html">
-                                <img class="img-fluid" alt="" src="{{asset('template/mentoring/html/assets/img/user/user1.jpg')}}" width="600" height="300">
-                            </a>
-                        </div>
-                        <div class="product-content">
-                            <h3 class="title"><a href="profile.html">Donna Yancey</a></h3>
-                            <div class="author-info">
-                                <div class="author-name">
-                                    Digital Marketer
-                                </div>
-                            </div>
-                            <div class="rating">							
-                                <i class="fas fa-star filled"></i>
-                                <i class="fas fa-star filled"></i>
-                                <i class="fas fa-star filled"></i>
-                                <i class="fas fa-star filled"></i>
-                                <i class="fas fa-star"></i>
-                                <span class="d-inline-block average-rating">4.4</span>
-                            </div>
-                            <div class="author-country">
-                                <p class="mb-0"><i class="fas fa-map-marker-alt"></i> Paris, France</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                @endfor
-            
+          </div>
+  
+          <div class="col-xl col-lg-2 col-md-6" data-aos="fade-up">
+            <div class="member">
+              <div class="pic" style="background: #FFF9FB;border: 1px solid #E51453;box-sizing: border-box;border-radius: 12px;"><img src="{{asset('logo/mapel/inggris.png')}}" class="img-fluid" style="padding: 60px;" alt="">
+              </div>
             </div>
+          </div>
+  
+          <div class="col-xl col-lg-2 col-md-6" data-aos="fade-up">
+            <div class="member">
+              <div class="pic" style="background: #FFF9FB;border: 1px solid #E51453;box-sizing: border-box;border-radius: 12px;"><img src="{{asset('logo/mapel/math.png')}}" class="img-fluid" style="padding: 60px;" alt="">
+              </div>
+            </div>
+          </div>
+  
+          <div class="col-xl col-lg-2 col-md-6" data-aos="fade-up">
+            <div class="member">
+              <div class="pic" style="background: #FFF9FB;border: 1px solid #E51453;box-sizing: border-box;border-radius: 12px;"><img src="{{asset('logo/mapel/fisika.png')}}" class="img-fluid" style="padding: 60px;" alt="">
+              </div>
+            </div>
+          </div>
+  
+          <div class="col-xl col-lg-2 col-md-6" data-aos="fade-up">
+            <div class="member">
+              <div class="pic" style="background: #FFF9FB;border: 1px solid #E51453;box-sizing: border-box;border-radius: 12px;"><img src="{{asset('logo/mapel/geografi.png')}}" class="img-fluid" style="padding: 60px;" alt="">
+              </div>
+            </div>
+          </div>        
         </div>
-    </section>
-
-    <!-- Path section start -->
-    <section class="section path-section">
-        <h5 class="text-center">Image - image</h5>
-    </section>
-    <!-- Path section end -->
-
-    <!-- Blog Section -->
-    <section class="section section-blogs">
-        <div class="container">
-        
-            <!-- Section Header -->
-            <div class="section-header text-center">
-                <h2>Blog</h2>
-                <p class="sub-title">Kumpulan Artikel dari Guru - Guru Hebat</p>
+  
+        <div class="row" style="width: 100%;">
+  
+          <div class="col-xl col-lg-2 col-md-6" data-aos="fade-up">
+            <div class="member">
+              <div class="pic" style="background: #FFF9FB;border: 1px solid #E51453;box-sizing: border-box;border-radius: 12px;"><img src="{{asset('logo/mapel/kimia.png')}}" class="img-fluid" style="padding: 60px;" alt="">
+              </div>
             </div>
-            <!-- /Section Header -->
-            
-            <div class="row blog-grid-row">
-                @for ($i = 0; $i < 4; $i ++)
-                <div class="col-md-6 col-lg-3 col-sm-12">
-                    <!-- Blog Post -->
-                    <div class="blog grid-blog">
-                        <div class="blog-image">
-                            <a href="blog-details.html"><img class="img-fluid" src="{{asset('template/mentoring/html/assets/img/blog/blog-01.jpg')}}" alt="Post Image"></a>
-                        </div>
-                        <div class="blog-content">
-                            <ul class="entry-meta meta-item">
-                                <li>
-                                    <div class="post-author">
-                                        <a href="blog-details.html"><span>Tyrone Roberts</span></a>
-                                    </div>
-                                </li>
-                                <li><i class="far fa-clock"></i> 4 Dec 2019</li>
-                            </ul>
-                            <h3 class="blog-title"><a href="blog-details.html">What is Lorem Ipsum? Lorem Ipsum is simply</a></h3>
-                            <p class="mb-0">Lorem ipsum dolor sit amet, consectetur em adipiscing elit, sed do eiusmod tempor.</p>
-                        </div>
-                    </div>
-                    <!-- /Blog Post -->
-                </div>
-                @endfor
+          </div>
+  
+          <div class="col-xl col-lg-2 col-md-6" data-aos="fade-up">
+            <div class="member">
+              <div class="pic" style="background: #FFF9FB;border: 1px solid #E51453;box-sizing: border-box;border-radius: 12px;"><img src="{{asset('logo/mapel/tik.png')}}" class="img-fluid" style="padding: 60px;" alt="">
+              </div>
             </div>
-            <div class="view-all text-center"> 
-                <a href="blog-list.html" class="btn btn-primary">View All</a>
+          </div>
+  
+          <div class="col-xl col-lg-2 col-md-6" data-aos="fade-up">
+            <div class="member">
+              <div class="pic" style="background: #FFF9FB;border: 1px solid #E51453;box-sizing: border-box;border-radius: 12px;"><img src="{{asset('logo/mapel/islam.png')}}" class="img-fluid" style="padding: 60px;" alt="">
+              </div>
             </div>
+          </div>
+  
+          <div class="col-xl col-lg-2 col-md-6" data-aos="fade-up">
+            <div class="member">
+              <div class="pic" style="background: #FFF9FB;border: 1px solid #E51453;box-sizing: border-box;border-radius: 12px;"><img src="{{asset('logo/mapel/piano.png')}}" class="img-fluid" style="padding: 60px;" alt="">
+              </div>
+            </div>
+          </div>
+  
+          <div class="col-xl col-lg-2 col-md-6" data-aos="fade-up">
+            <div class="member">
+              <div class="pic" style="background: #FFF9FB;border: 1px solid #E51453;box-sizing: border-box;border-radius: 12px;"><img src="{{asset('logo/mapel/guitar.png')}}" class="img-fluid" style="padding: 60px;" alt="">
+              </div>
+            </div>
+          </div>        
         </div>
-    </section>
-    <!-- /Blog Section -->	
-
-    <!-- Statistics Section -->
-    <section class="section statistics-section">
-        <div class="container">
-            <div class="row">
-                <div class="col-12 col-md-4">
-                    <div class="statistics-list text-center">
-                        <span>500+</span>
-                        <h3>Happy Clients</h3>
-                    </div>
-                </div>
-                <div class="col-12 col-md-4">
-                    <div class="statistics-list text-center">
-                        <span>120+</span>
-                        <h3>Online Appointments</h3>
-                    </div>
-                </div>
-                <div class="col-12 col-md-4">
-                    <div class="statistics-list text-center">
-                        <span>100%</span>
-                        <h3>Job Satisfaction</h3>
-                    </div>
-                </div>
-            </div>
+  
         </div>
+      </div>
     </section>
-    <!-- /Statistics Section -->		
-@endsection
-
-@section('js')
+  
+    <!-- ======= About Us Section ======= -->
+    <section id="about" class="about">
+      <div class="container">
+        <div class="row no-gutters">
+          <div class="col-lg-8 d-flex flex-column justify-content-center about-content">
+            <div class="section-title">
+                <p style="font-size: 24px;color: #E51453;">Tentang Kami</p>
+                <h2>Layanan Les Private Realtime</h2>
+                <p class="description">
+                  - Guru Berkualitas <br>
+                  - Layanan pencarian guru pilihan terbaik<br>
+                  - Sistem belajar melalui video call dan chat room<br>
+                  - Waktu bisa diatur sendiri<br>
+                  - Bisa privat atau berkelompok dengan teman<br>
+                  - Evaluasi pembelajaran<br>
+                </p>
+            </div>
+            <table>
+              <tr>
+                <td>
+                  <div class="icon-box" data-aos="fade-up" data-aos-delay="100">
+                    <div class="icon"><i class="bx bx-gift"></i></div>
+                    <h4 class="title"><a href="">0</a></h4>
+                    <p class="description">Pilihan Guru</p>
+                  </div>
+                </td>
+                <td>
+                  <div class="icon-box" data-aos="fade-up" data-aos-delay="100">
+                    <div class="icon"><i class="bx bx-gift"></i></div>
+                    <h4 class="title"><a href="">0</a></h4>
+                    <p class="description">Room Meet</p>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="icon-box" data-aos="fade-up" data-aos-delay="100">
+                    <div class="icon"><i class="bx bx-gift"></i></div>
+                    <h4 class="title"><a href="">0</a></h4>
+                    <p class="description">Mata Pelajaran</p>
+                  </div>
+                </td>
+                <td>
+                  <div class="icon-box" data-aos="fade-up" data-aos-delay="100">
+                    <div class="icon"><i class="bx bx-gift"></i></div>
+                    <h4 class="title"><a href="">0</a></h4>
+                    <p class="description">Provinsi</p>
+                  </div>
+                </td>
+              </tr>
+            </table>
+          </div>
+          <div class="col-md-4 video-box">
+            <img src="{{asset('logo/about.png')}}" height="527px" class="img-fluid" alt="">
+            <!-- <a href="https://www.youtube.com/watch?v=jDDaplaOz7Q" class="venobox play-btn mb-4" data-vbtype="video" data-autoplay="true"></a> -->
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- End About Us Section -->
+  
+    <section id="guruterbaik" class="team">
+      <div class="container">
+  
+        <div class="section-title">
+          <h2>Guru Pilihan</h2>
+          <p>Beberapa Guru Terbaik Kami</p>
+        </div>
+  
+        <div class="row">
+  
+          <div class="col-xl-3 col-lg-4 col-md-6" data-aos="fade-up">
+            <div class="member">
+              <div class="pic"><img src="{{asset('logo/team/team-1.jpg')}}" class="img-fluid" alt=""></div>
+              <div class="member-info">
+                <h4>Walter White</h4>
+                <span>Chief Executive Officer</span>
+              </div>
+            </div>
+          </div>
+  
+          <div class="col-xl-3 col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+            <div class="member">
+              <div class="pic"><img src="{{asset('logo/team/team-2.jpg')}}" class="img-fluid" alt=""></div>
+              <div class="member-info">
+                <h4>Sarah Jhonson</h4>
+                <span>Product Manager</span>
+              </div>
+            </div>
+          </div>
+  
+          <div class="col-xl-3 col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+            <div class="member">
+              <div class="pic"><img src="{{asset('logo/team/team-3.jpg')}}" class="img-fluid" alt=""></div>
+              <div class="member-info">
+                <h4>William Anderson</h4>
+                <span>CTO</span>
+              </div>
+            </div>
+          </div>
+  
+          <div class="col-xl-3 col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+            <div class="member">
+              <div class="pic"><img src="{{asset('logo/team/team-4.jpg')}}" class="img-fluid" alt=""></div>
+              <div class="member-info">
+                <h4>Amanda Jepson</h4>
+                <span>Accountant</span>
+              </div>
+            </div>
+          </div>
+  
+          <div class="col-xl-3 col-lg-4 col-md-6" data-aos="fade-up">
+            <div class="member">
+              <div class="pic"><img src="{{asset('logo/team/team-1.jpg')}}" class="img-fluid" alt=""></div>
+              <div class="member-info">
+                <h4>Walter White</h4>
+                <span>Chief Executive Officer</span>
+              </div>
+            </div>
+          </div>
+  
+          <div class="col-xl-3 col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+            <div class="member">
+              <div class="pic"><img src="{{asset('logo/team/team-2.jpg')}}" class="img-fluid" alt=""></div>
+              <div class="member-info">
+                <h4>Sarah Jhonson</h4>
+                <span>Product Manager</span>
+              </div>
+            </div>
+          </div>
+  
+          <div class="col-xl-3 col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+            <div class="member">
+              <div class="pic"><img src="{{asset('logo/team/team-3.jpg')}}" class="img-fluid" alt=""></div>
+              <div class="member-info">
+                <h4>William Anderson</h4>
+                <span>CTO</span>
+              </div>
+            </div>
+          </div>
+  
+          <div class="col-xl-3 col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+            <div class="member">
+              <div class="pic"><img src="{{asset('logo/team/team-4.jpg')}}" class="img-fluid" alt=""></div>
+              <div class="member-info">
+                <h4>Amanda Jepson</h4>
+                <span>Accountant</span>
+              </div>
+            </div>
+          </div>
+  
+        </div>
+  
+      </div>
+    </section>
+  
+    <section id="meet" class="about">
+      <div class="container">
+        <div class="row no-gutters">
+          <div class="col-md-6 video-box">
+            <img src="{{asset('logo/meet.png')}}" height="527px" class="img-fluid" alt="">
+          </div>
+          <div class="col-md-6 d-flex flex-column justify-content-center about-content">
+            <div class="section-title">
+                <h2>GURU MEET</h2>
+                <p class="description">
+                  Sebuah Media Video Conference yang akan digunakan dalam les privat online, dengan berbagai macam fitur yang akan mendukung proses belajar mengajar antara guru dan murid. Bisa diakses melalui laptop ataupun perangkat handphone, senyamannya kalian belajar.
+                </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  
+    <section class="counts section-bg">
+      <div class="container">
+  
+        <div class="row">
+  
+  
+        </div>
+  
+      </div>
+    </section>
+  
+    <section id="portfolio" class="portfolio">
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+  
+        <div class="section-title">
+          <h2>Blog</h2>
+          <p>Kumpulan Artikel dari Guru - Guru Hebat</p>
+        </div>
+  
+        <div class="row portfolio-container">
+          @foreach ($blog as $item)
+          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+            <div class="card" style="width: 18rem;">
+                <img src="{{asset('berkas/blog/'.$item->image)}}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <span class="badge badge-danger">{{$item->kategori}}</span>
+                    <br>
+                    <small>{{date('d F Y', strtotime($item->created_at))}}</small>
+                  <h6 class="card-title"><b>{{$item->judul}}</b></h6>
+                  <p class="card-text">{!!$item->content!!}</p>
+                  <a href="#"><small class="text-danger">Baca Selengkapnya...</small></a>
+                </div>
+              </div>
+          </div>
+          @endforeach
+        </div>
+  
+      </div>
+    </section>
     
-@endsection
+  </main>
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+    <div class="footer-top">
+        <div class="container">
+          <div class="row">
+      
+            <div class="col footer-logo" data-aos="fade-up" data-aos-delay="100">
+              
+              <h4><img src="{{asset('logo/logo.png')}}" width="60" alt="" class="img-fluid"> CARI GURU</h4>
+            </div>
+      
+            <div class="col-lg-3 col-md-6 footer-links" data-aos="fade-up" data-aos-delay="200">
+              <h4>Menu</h4>
+              <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Blog</a></li>
+                <li><a href="#">Guru Meet</a></li>
+                <li><a href="#">FAQ</a></li>
+              </ul>
+            </div>
+      
+            <div class="col-lg-3 col-md-6 footer-links" data-aos="fade-up" data-aos-delay="300">
+              <h4>Layanan</h4>
+              <ul>
+                <li><a href="https://bit.ly/mitracariguru">Daftar Partner (Guru)</a></li>
+                <li><a href="#">Konfirmasi Pembayaran</a></li>
+                
+              </ul>
+            </div>
+      
+            <div class="col-lg-3 col-md-6 footer-links" data-aos="fade-up" data-aos-delay="400">
+              <h4>Kontak</h4>
+              <ul>
+                <li><a href="#">+62801929283</a></li>
+                <li><a href="#">support@cariguru.co.id</a></li>
+                <li><a href="#">Jakarta/Indonesia</a></li>
+              </ul>
+            </div>
+      
+          </div>
+        </div>
+      </div>
+      <div class="container">
+            <div class="copyright">
+              &copy; Copyright <strong><span>CariGuru</span></strong>. All Rights Reserved
+            </div>
+            <div class="credits">
+              Designed by <a href="https://cariguru.co.id/">CariGuru</a>
+            </div>
+          </div>
+      
+      
+  </footer>
+
+  <a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
+
+  
+  <script src="{{asset('template/frontend/vendor/jquery/jquery.min.js')}}"></script>
+  <script src="{{asset('template/frontend/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+  <script src="{{asset('template/frontend/vendor/jquery.easing/jquery.easing.min.js')}}"></script>
+  <script src="{{asset('template/frontend/vendor/php-email-form/validate.js')}}"></script>
+  <script src="{{asset('template/frontend/vendor/jquery-sticky/jquery.sticky.js')}}"></script>
+  <script src="{{asset('template/frontend/vendor/venobox/venobox.min.js')}}"></script>
+  <script src="{{asset('template/frontend/vendor/waypoints/jquery.waypoints.min.js')}}"></script>
+  <script src="{{asset('template/frontend/vendor/counterup/counterup.min.js')}}"></script>
+  <script src="{{asset('template/frontend/vendor/owl.carousel/owl.carousel.min.js')}}"></script>
+  <script src="{{asset('template/frontend/vendor/isotope-layout/isotope.pkgd.min.js')}}"></script>
+  <script src="{{asset('template/frontend/vendor/aos/aos.js')}}"></script>
+
+  <!-- Template Main JS File -->
+  <script src="{{asset('template/public_frontend/js/main.js')}}"></script>
+
+</body>
+
+</html>

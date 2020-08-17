@@ -84,7 +84,7 @@
     // var data = CKEDITOR.instances.value.getData();
     $(document).ready(function(){
         $('#kategori').val('{{$blog->kategori}}');
-        CKEDITOR.instances['content'].setData({!! $blog->content !!});
+        CKEDITOR.instances['content'].setData('{!! $blog->content !!}');
     });
 </script>
 @endsection

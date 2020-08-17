@@ -87,6 +87,7 @@ Route::prefix('tentor')->group(function () {
 	Route::put('ubah_password_action','Tentor\AuthController@ubah_password_action');
 
 	Route::get('dashboard','Tentor\DashboardController@index');
+	
 	Route::prefix('blog')->group(function() {
 		Route::resource('blog', 'Tentor\BlogController');
 		Route::get('index','Tentor\BlogController@index');
@@ -95,8 +96,4 @@ Route::prefix('tentor')->group(function () {
 
 });
 
-Route::prefix('dashboard')->group(function() {
-
-	Route::view('/','landing_page.index2');
-	
-});
+Route::resource('/','Dashboard\DashboardController');
