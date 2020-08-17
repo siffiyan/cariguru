@@ -16,6 +16,8 @@ class CreateBlogTable extends Migration
         Schema::create('blog', function (Blueprint $table) {
             $table->id();
             $table->string('judul',50);
+            $table->binary('image');
+            $table->string('kategori',50);
             $table->text('content');
             $table->enum('isactive', ['0', '1']);
             $table->enum('status', ['approve', 'reject', 'pending']);

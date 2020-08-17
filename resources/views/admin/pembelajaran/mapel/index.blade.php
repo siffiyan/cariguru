@@ -243,7 +243,7 @@
             success:function(response){
                 $('#edit_mapel').modal('show');
                 $('#id_edit').val(id);
-                $('#a').val(response.jenjang);
+                $('#list_jenjang').val(response.jenjang);
                 $('#list_kurikulum').val(response.kurikulum);
                 $('#mata_pelajaran').val(response.mata_pelajaran);
             },

@@ -77,6 +77,8 @@ class AuthController extends Controller
 		   'password_konfirmasi' =>'required'
         ]);
 
+        
+
 	}
 
 }
