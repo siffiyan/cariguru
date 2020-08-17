@@ -63,4 +63,20 @@ class AuthController extends Controller
 
 	}
 
+	public function ubah_password(){
+
+		return view('tentor.auth.ubah_password');
+
+	}
+
+	public function ubah_password_action(Request $request){
+
+		$this->validate($request,[
+           'password_lama' => 'required',
+		   'password_baru' =>'required|min:6|same:password_konfirmasi',
+		   'password_konfirmasi' =>'required'
+        ]);
+
+	}
+
 }

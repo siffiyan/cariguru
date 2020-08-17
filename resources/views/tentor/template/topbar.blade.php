@@ -37,8 +37,7 @@
 										<p class="text-muted mb-0">Mentor</p>
 									</div>
 								</div>
-								<a class="dropdown-item" href="dashboard.html">Dashboard</a>
-								<a class="dropdown-item" href="profile-settings.html">Profile Settings</a>
+								<a class="dropdown-item" href="/tentor/ubah_password">Ubah Password</a>
 								<a class="dropdown-item" href="/tentor/logout">Logout</a>
 							</div>
 						</li>
