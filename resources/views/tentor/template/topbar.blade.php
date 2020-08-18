@@ -33,7 +33,7 @@
 										<img src="{{asset('template/mentoring/html/admin/assets/img/profiles/avatar-11.jpg')}}" alt="User Image" class="avatar-img rounded-circle">
 									</div>
 									<div class="user-text">
-										<h6>Jonathan Doe</h6>
+										<h6>{{ session()->get('nama')}}</h6>
 										<p class="text-muted mb-0">Mentor</p>
 									</div>
 								</div>

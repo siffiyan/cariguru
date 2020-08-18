@@ -101,8 +101,5 @@ Route::prefix('tentor')->group(function () {
 
 });
 
-Route::prefix('dashboard')->group(function() {
-
-	Route::view('index','landing_page.index2');
-	
-});
+Route::resource('/','Dashboard\DashboardController');
+Route::view('/blog','landing_page.blog');

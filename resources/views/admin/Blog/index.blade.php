@@ -79,9 +79,9 @@
                                 @if($a->status == 'pending')
                                     <a onclick="approval({{$a->id}})" class="badge badge-pill bg-warning inv-badge text-white" style="cursor:pointer">pending</a>
                                     @elseif($a->status == 'approve')
-                                    <a class="badge badge-pill bg-success inv-badge text-white" style="cursor:pointer">approve</a>
+                                    <a class="badge badge-pill bg-success inv-badge text-white" style="cursor: not-allowed">approve</a>
                                     @else
-                                    <a class="badge badge-pill bg-danger inv-badge text-white" style="cursor:pointer">reject</a>
+                                    <a class="badge badge-pill bg-danger inv-badge text-white" style="cursor: not-allowed">reject</a>
                                 @endif
                             </td>
                             <td>

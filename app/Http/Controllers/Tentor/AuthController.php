@@ -29,6 +29,7 @@ class AuthController extends Controller
 
 				Session::put('email',$data->email);
 				Session::put('id',$data->id);
+				Session::put('nama',$data->nama);
                 Session::put('login',TRUE);
 
                return redirect('/tentor/dashboard');
@@ -55,7 +56,8 @@ class AuthController extends Controller
 	public function logout(Request $request){
 
 		$request->session()->forget('email');
-        $request->session()->forget('id');
+		$request->session()->forget('id');
+		$request->session()->forget('nama');
         $request->session()->forget('login');
         $request->session()->flush();
         

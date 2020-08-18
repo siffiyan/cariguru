@@ -15,7 +15,7 @@
                         <span class="course-title">{{$blog->judul}}</span>
                         <div class="d-flex flex-wrap date-col">
                             <span class="date"><i class="fas fa-calendar-check"></i> {{date('d F Y', strtotime($blog->created_at))}}</span>
-                            <span class="author"><i class="fe fe-user"></i> By Andrew Dawis</span>
+                            <span class="author"><i class="fe fe-user"></i> By {{$blog->created_by}}</span>
                         </div>
                         <div class="blog-details-img">
                             <img class="img-fluid" src="{{asset('berkas/blog/'.$blog->image)}}" alt="Post Image">
@@ -33,7 +33,7 @@
         <!-- Share post -->
         <div class="card">
             <div class="card-body">
-                <h4>Share the post</h4>
+                <h4>Bagikan Halaman Ini</h4>
                 <ul class="share-post">
                     <li>
                         <a href="#" target="_blank"><i class="fab fa-facebook-f"></i> </a>
@@ -58,13 +58,13 @@
         <!-- About Author -->
         <div class="card">
             <div class="card-body">
-                <h4>About author</h4>
+                <h4>Tentang Penulis</h4>
                 <div class="about-author pt-4 d-flex align-items-center">
-                    <div class="left">
+                    {{-- <div class="left">
                         <img class="rounded-circle" src="assets/img/profiles/avatar-12.jpg" width="120" alt="Ryan Taylor">
-                    </div>
+                    </div> --}}
                     <div class="right">
-                        <h5>Linda Barrett</h5>
+                        <h5>{{$blog->created_by}}</h5>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
                     </div>
                 </div>
