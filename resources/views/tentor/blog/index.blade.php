@@ -4,8 +4,7 @@
     
 @section('content')
 
-<div class="row">
-    <div class="col-sm-12">
+    <div class="col-md-12">
 
         <a href="{{route('blog.create')}}" class="btn btn-danger mb-3"><i class="fa fa-plus"></i> &nbsp; Tambah Blog</a>
 
@@ -29,11 +28,11 @@
 
         <div class="card">
             <div class="card-body">
-
                 <!-- Blog list -->
-                <div class="row">
+        
+                    @if($blog->count()>0)
                     @foreach ($blog as $item)
-                    <div class="col-12 col-md-6 col-xl-4">
+                    <div class="col-12 col-md-4">
                         <div class="course-box blog grid-blog">
                             <div class="blog-image mb-0" style="width: 320px;height: 300px">
                             <a href="{{route('blog.show',$item->id)}}"><img src="{{asset('berkas/blog/'.$item->image)}}"></a>
@@ -68,13 +67,30 @@
                         </div>
                     </div>
                     @endforeach
-                </div>
+                    @else
+                    <div style="border:2px dashed black;padding: 25px;text-align: center;">
+                        Anda belum memiliki artikel/ blog
+                    </div>
+                    @endif
+    
                 <!-- /Blog list -->
 
             </div>
         </div>
     </div>			
-</div>
+
+@endsection
+
+@section('js')
+    
+    <script>
+        function hapus(id){
+            $('#id_delete').val(id);
+            $('#delete_modal').modal('show');
+        }
+    </script>
+
+@endsection
 
 <!-- Delete Model -->
 <form action="/tentor/blog/delete" method="post">
@@ -82,7 +98,7 @@
     @csrf
     <div class="modal fade" id="delete_modal" role="dialog" style="display: none;" aria-hidden="true">
         <div class="modal-dialog" role="document">
-            <div class="modal-content">
+            <div class="modal-content text-center">
                 <div class="modal-body">
                     <div class="form-content p-2">
                         <h4 class="modal-title">Delete</h4>
@@ -97,16 +113,3 @@
     </div>
 </form>
 <!-- Delete Model -->
-
-@endsection
-
-@section('js')
-    
-    <script>
-        function hapus(id){
-            $('#id_delete').val(id);
-            $('#delete_modal').modal('show');
-        }
-    </script>
-
-@endsection
