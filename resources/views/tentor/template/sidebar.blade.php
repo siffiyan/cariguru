@@ -10,8 +10,8 @@
 			<i class="fas fa-star"></i>
 		</div>
 		<div class="user-info-cont">
-			<h4 class="usr-name">Jonathan Doe</h4>
-			<p class="mentor-type">English Literature (M.A)</p>
+			<h4 class="usr-name">{{ session()->get('nama')}}</h4>
+			<p class="mentor-type">Mentor</p>
 		</div>
 	</div>
 	<div class="progress-bar-custom">
@@ -26,7 +26,7 @@
 			<li><a href="dashboard.html" class="active"><i class="fas fa-home"></i>Dashboard <span><i class="fas fa-chevron-right"></i></span></a></li>
 			<li><a href="/tentor/blog/index"><i class="fab fa-blogger-b"></i>Blog <span><i class="fas fa-chevron-right"></i></span></a></li>
 			<li><a href="profile.html"><i class="fas fa-user-cog"></i>Profile <span><i class="fas fa-chevron-right"></i></span></a></li>
-			<li><a href="login.html"><i class="fas fa-sign-out-alt"></i>Logout <span><i class="fas fa-chevron-right"></i></span></a></li>
+			<li><a href="/tentor/logout"><i class="fas fa-sign-out-alt"></i>Logout <span><i class="fas fa-chevron-right"></i></span></a></li>
 		</ul>
 	</div>
 </div>

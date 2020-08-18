@@ -61,6 +61,7 @@ class BlogController extends Controller
                 'image' => $photo,
                 'kategori' => $request->kategori,
                 'content' => $request->content,
+                'created_by' => 'Super Admin',
             ]
         );
         return redirect('admin/blog/dashboard')->with('msg', 'data Blog berhasil ditambahkan'); 
@@ -115,6 +116,16 @@ class BlogController extends Controller
         $blog->judul = e($request->input('judul'));
         $blog->kategori = e($request->input('kategori'));
         $blog->content = e($request->input('content'));
+
+        if($request->hasfile('image')){
+            $data = $request->input('image');
+            $photo = $request->file('image')->getClientOriginalName();
+            var_dump($request->file('image'));
+            $destination = base_path() . '/public/berkas/blog';
+            $request->file('image')->move($destination, $photo);
+            $blog->image = $photo;
+        }
+
         $blog->save();
 
         return redirect('admin/blog/dashboard')->with('msg', 'data Blog berhasil diubah'); ;

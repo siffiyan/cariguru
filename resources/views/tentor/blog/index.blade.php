@@ -35,8 +35,8 @@
                     @foreach ($blog as $item)
                     <div class="col-12 col-md-6 col-xl-4">
                         <div class="course-box blog grid-blog">
-                            <div class="blog-image mb-0">
-                            <a href="{{route('blog.show',$item->id)}}"><img src="{{asset('berkas/blog/'.$item->image)}}" width="500px" height="250px" alt="Post Image"></a>
+                            <div class="blog-image mb-0" style="width: 320px;height: 300px">
+                            <a href="{{route('blog.show',$item->id)}}"><img src="{{asset('berkas/blog/'.$item->image)}}"></a>
                             </div>
                             <div class="course-content">
                                 
@@ -49,6 +49,7 @@
                                     @endif
                                
                                 <span class="date">{{date('d F Y', strtotime($item->created_at))}}</span>
+                                <br>
                                 <span class="course-title">{{$item->judul}}</span>
                                 {!! substr($item->content, 0, 50) . '...' !!}
                                 <div class="row">

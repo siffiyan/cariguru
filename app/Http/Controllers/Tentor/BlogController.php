@@ -16,7 +16,7 @@ class BlogController extends Controller
      */
     public function index()
     {
-        $data['blog'] = Blog::all();
+        $data['blog'] = Blog::where('created_by',session()->get('nama'))->get();
         return view('tentor.blog.index',$data);
     }
 
@@ -62,6 +62,7 @@ class BlogController extends Controller
                 'status' => 'pending',
                 'kategori' => $request->kategori,
                 'content' => $request->content,
+                'created_by' => session()->get('nama'),
             ]
         );
         return redirect('/tentor/blog/index')->with('msg', 'data Blog berhasil ditambahkan'); 
@@ -116,6 +117,16 @@ class BlogController extends Controller
         $blog->judul = e($request->input('judul'));
         $blog->kategori = e($request->input('kategori'));
         $blog->content = e($request->input('content'));
+
+        if($request->hasfile('image')){
+            $data = $request->input('image');
+            $photo = $request->file('image')->getClientOriginalName();
+            var_dump($request->file('image'));
+            $destination = base_path() . '/public/berkas/blog';
+            $request->file('image')->move($destination, $photo);
+            $blog->image = $photo;
+        }
+
         $blog->save();
 
         return redirect('tentor/blog/index')->with('msg', 'data Blog berhasil diubah');

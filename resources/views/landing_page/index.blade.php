@@ -380,11 +380,12 @@
           @foreach ($blog as $item)
           <div class="col-lg-4 col-md-6 portfolio-item filter-app">
             <div class="card" style="width: 18rem;">
-                <img src="{{asset('berkas/blog/'.$item->image)}}" class="card-img-top" alt="...">
+                <img src="{{asset('berkas/blog/'.$item->image)}}" class="card-img-top" style="height: 300px" alt="...">
                 <div class="card-body">
-                    <span class="badge badge-danger">{{$item->kategori}}</span>
-                    <br>
-                    <small>{{date('d F Y', strtotime($item->created_at))}}</small>
+                  <span class="badge badge-danger">{{$item->kategori}}</span>
+                  <small>{{date('d F Y', strtotime($item->created_at))}}</small>   
+                  <br>
+                  <small style="float-right">By {{$item->created_by}}</small>
                   <h6 class="card-title"><b>{{$item->judul}}</b></h6>
                   <p class="card-text">{!!$item->content!!}</p>
                   <a href="#"><small class="text-danger">Baca Selengkapnya...</small></a>

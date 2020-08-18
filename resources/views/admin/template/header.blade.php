@@ -12,8 +12,9 @@
 		<!-- Bootstrap CSS -->
         <link rel="stylesheet" href="{{asset('template/mentoring/html/admin/assets/css/bootstrap.min.css')}}">
 		
-		<!-- Fontawesome CSS -->
-        <link rel="stylesheet" href="{{asset('template/mentoring/html/admin/assets/plugins/fontawesome/css/fontawesome.min.css')}}">
+        <!-- Fontawesome CSS -->
+		<link rel="stylesheet" href="{{asset('template/mentoring/html/assets/plugins/fontawesome/css/fontawesome.min.css')}}">
+		<link rel="stylesheet" href="{{asset('template/mentoring/html/assets/plugins/fontawesome/css/all.min.css')}}">
 		
 		<!-- Feathericon CSS -->
 		<link rel="stylesheet" href="{{asset('template/mentoring/html/admin/assets/css/feathericon.min.css')}}">

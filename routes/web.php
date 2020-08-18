@@ -97,3 +97,4 @@ Route::prefix('tentor')->group(function () {
 });
 
 Route::resource('/','Dashboard\DashboardController');
+Route::view('/blog','landing_page.blog');
