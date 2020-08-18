@@ -9,9 +9,18 @@
 		<!-- Sticky Sidebar JS -->
         <script src="{{asset('template/mentoring/html/assets/plugins/theia-sticky-sidebar/ResizeSensor.js')}}"></script>
         <script src="{{asset('template/mentoring/html/assets/plugins/theia-sticky-sidebar/theia-sticky-sidebar.js')}}"></script>
+
+         <!-- Datatables JS -->
+		<script src="{{asset('template/mentoring/html/admin/assets/plugins/datatables/jquery.dataTables.min.js')}}"></script>
+		<script src="{{asset('template/mentoring/html/admin/assets/plugins/datatables/datatables.min.js')}}"></script>
 		
 		<!-- Circle Progress JS -->
 		<!-- <script src="assets/js/circle-progress.min.js"></script> -->
+
+		<script type="text/javascript">
+			$('#tabel1').dataTable();
+			
+		</script> 
 			
 		@yield('js')
 		

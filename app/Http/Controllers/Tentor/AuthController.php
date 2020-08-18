@@ -77,6 +77,18 @@ class AuthController extends Controller
 		   'password_konfirmasi' =>'required'
         ]);
 
+		// cek apakah password lamanya benar
+		$data = Mitra::find(session('id'));
+
+		if(Hash::check($request->password_lama,$data->password)){
+			$data->password = Hash::make($request->password_baru);
+			$data->save();
+			return redirect('/tentor/ubah_password')->with('success','Password berhasil diubah');
+		 }
+
+		 else{
+		 	return redirect('/tentor/ubah_password')->with('error','Password lama anda salah');
+		 }		
         
 
 	}

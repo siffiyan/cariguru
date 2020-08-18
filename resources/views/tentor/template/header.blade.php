@@ -12,8 +12,15 @@
 		<link rel="stylesheet" href="{{asset('template/mentoring/html/assets/css/bootstrap.min.css')}}">
 		
 		<!-- Fontawesome CSS -->
-		<link rel="stylesheet" href="{{asset('template/mentoring/html/assets/plugins/fontawesome/css/fontawesome.min.css')}}">
-		<link rel="stylesheet" href="{{asset('template/mentoring/html/assets/plugins/fontawesome/css/all.min.css')}}">
+
+		<!-- Fontawesome CSS -->
+        <link rel="stylesheet" href="{{asset('template/mentoring/html/admin/assets/plugins/fontawesome/css/fontawesome.min.css')}}">
+		<link rel="stylesheet" href="{{asset('template/mentoring/html/admin/assets/plugins/fontawesome/css/all.min.css')}}">
+		<!-- Feathericon CSS -->
+		<link rel="stylesheet" href="{{asset('template/mentoring/html/admin/assets/css/feathericon.min.css')}}">
+
+		   <!-- Datatables CSS -->
+		<link rel="stylesheet" href="{{asset('template/mentoring/html/admin/assets/plugins/datatables/datatables.min.css')}}">
 		
 		<!-- Main CSS -->
 		<link rel="stylesheet" href="{{asset('template/mentoring/html/assets/css/style.css')}}">
@@ -25,6 +32,13 @@
 		<![endif]-->
 
 		@yeild('css')
+
+		  <style type="text/css">
+        	tr th{
+        		background-color:#e51453;
+        		color:white;
+        	}
+        </style>
 	
 	</head>
 	<body>
