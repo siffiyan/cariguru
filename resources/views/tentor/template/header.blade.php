@@ -10,16 +10,18 @@
 		
 		<!-- Bootstrap CSS -->
 		<link rel="stylesheet" href="{{asset('template/mentoring/html/assets/css/bootstrap.min.css')}}">
-		
-		<!-- Fontawesome CSS -->
 
 		<!-- Fontawesome CSS -->
         <link rel="stylesheet" href="{{asset('template/mentoring/html/admin/assets/plugins/fontawesome/css/fontawesome.min.css')}}">
 		<link rel="stylesheet" href="{{asset('template/mentoring/html/admin/assets/plugins/fontawesome/css/all.min.css')}}">
+
 		<!-- Feathericon CSS -->
 		<link rel="stylesheet" href="{{asset('template/mentoring/html/admin/assets/css/feathericon.min.css')}}">
 
-		   <!-- Datatables CSS -->
+		<!-- Datetimepicker CSS -->
+		<link rel="stylesheet" href="{{asset('template/mentoring/html/assets/css/bootstrap-datetimepicker.min.css')}}">
+
+		<!-- Datatables CSS -->
 		<link rel="stylesheet" href="{{asset('template/mentoring/html/admin/assets/plugins/datatables/datatables.min.css')}}">
 		
 		<!-- Main CSS -->

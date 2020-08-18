@@ -10,6 +10,10 @@
         <script src="{{asset('template/mentoring/html/assets/plugins/theia-sticky-sidebar/ResizeSensor.js')}}"></script>
         <script src="{{asset('template/mentoring/html/assets/plugins/theia-sticky-sidebar/theia-sticky-sidebar.js')}}"></script>
 
+        <!-- Datetimepicker JS -->
+		<script src="{{asset('template/mentoring/html/assets/js/moment.min.js')}}"></script>
+		<script src="{{asset('template/mentoring/html/assets/js/bootstrap-datetimepicker.min.js')}}"></script>
+
          <!-- Datatables JS -->
 		<script src="{{asset('template/mentoring/html/admin/assets/plugins/datatables/jquery.dataTables.min.js')}}"></script>
 		<script src="{{asset('template/mentoring/html/admin/assets/plugins/datatables/datatables.min.js')}}"></script>
