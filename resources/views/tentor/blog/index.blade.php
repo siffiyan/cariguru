@@ -34,7 +34,7 @@
                     @foreach ($blog as $item)
                     <div class="col-12 col-md-4">
                         <div class="course-box blog grid-blog">
-                            <div class="blog-image mb-0" style="width: 320px;height: 300px">
+                            <div class="blog-image mb-0">
                             <a href="{{route('blog.show',$item->id)}}"><img src="{{asset('berkas/blog/'.$item->image)}}"></a>
                             </div>
                             <div class="course-content">
@@ -50,8 +50,11 @@
                                 <span class="date">{{date('d F Y', strtotime($item->created_at))}}</span>
                                 <br>
                                 <span class="course-title">{{$item->judul}}</span>
-                                {!! substr($item->content, 0, 50) . '...' !!}
-                                <div class="row">
+                                {!! substr($item->content, 0, 50) !!}
+                                <br>
+                                <a href="{{route('blog.show',$item->id)}}"><small class="text-danger">Baca Selengkapnya...</small></a>
+
+                                <div class="row mt-3">
                                     <div class="col">
                                         <a href="{{route('blog.edit',$item->id)}}" class="text-success">
                                             <i class="fa fa-edit"></i> Edit
@@ -93,7 +96,7 @@
 @endsection
 
 <!-- Delete Model -->
-<form action="/tentor/blog/delete" method="post">
+<form action="/admin/blog/delete" method="post">
     @method('delete')
     @csrf
     <div class="modal fade" id="delete_modal" role="dialog" style="display: none;" aria-hidden="true">

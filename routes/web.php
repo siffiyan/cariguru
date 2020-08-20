@@ -80,6 +80,8 @@ Route::prefix('admin')->group(function () {
 
 Route::prefix('tentor')->group(function () {
 
+	Route::resource('blog', 'Tentor\BlogController');
+
 	Route::get('login','Tentor\AuthController@login');
 	Route::post('login','Tentor\AuthController@login_action');
 	Route::get('logout','Tentor\AuthController@logout');
@@ -94,8 +96,6 @@ Route::prefix('tentor')->group(function () {
 	Route::post('prestasi_mitra','Tentor\PrestasiMitraController@store');
 
 	Route::prefix('blog')->group(function() {
-		Route::resource('blog', 'Tentor\BlogController');
-		Route::get('index','Tentor\BlogController@index');
 		Route::delete('delete','Tentor\BlogController@destroy');
 	});
 

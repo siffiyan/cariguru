@@ -18,13 +18,7 @@
                                 @csrf
                                 <input type="hidden" name="status" value="approve">
                                 <div class="row">
-                                    <div class="col-md-2">
-                                        <div class="form-group">
-                                            <label>Tanggal Blog</label>
-                                            <input type="date" value="<?php echo date("Y-m-d")?>" class="form-control" value="{{date($blog->created_at)}}" readonly>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-10">
+                                    <div class="col-md-12">
                                         <div class="form-group">
                                             <label>Judul Blog</label>
                                             <input class="form-control" type="text" name="judul" value="{{$blog->judul}}">
@@ -79,9 +73,7 @@
 
 <script src="https://cdn.ckeditor.com/4.14.1/standard/ckeditor.js"></script>
 <script>
-    CKEDITOR.replace( 'content' );
-    // CKEDITOR.instances['value'].setData('<strong>saadsas</strong>hello');
-    // var data = CKEDITOR.instances.value.getData();
+    CKEDITOR.replace( 'content');
     $(document).ready(function(){
         $('#kategori').val('{{$blog->kategori}}');
         CKEDITOR.instances['content'].setData('{!! $blog->content !!}');

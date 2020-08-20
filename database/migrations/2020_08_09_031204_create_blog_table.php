@@ -23,6 +23,7 @@ class CreateBlogTable extends Migration
             $table->enum('status', ['approve', 'reject', 'pending']);
             $table->integer('admin_id');
             $table->foreign('admin_id')->references('id')->on('admin')->onDelete('cascade');
+            $table->string('role', 50);
             $table->string('created_by', 50);
             $table->timestamps();
         });

@@ -77,16 +77,20 @@
                 <div class="col-6 col-sm-6">
                     <div class="form-group">
                         <label>Data Jenjang</label>
-                        <select class="form-control" name="jenjang" id="list_jenjang" required>
-                            <option value="" selected Disabled>Select Jenjang</option>
+                        <select class="form-control" name="jenjang" required>
+                            @foreach ($jenjang as $item)
+                                <option value="{{$item->id}}">{{$item->jenjang}}</option>
+                            @endforeach
                         </select>
                     </div>
                 </div>
                 <div class="col-6 col-sm-6">
                     <div class="form-group">
                         <label>Data Kurikulum</label>
-                        <select class="form-control" name="kurikulum" id="list_kurikulum">
-                            <option value="-" selected>Select Kurikulum</option>
+                        <select class="form-control" name="kurikulum">
+                            @foreach ($kurikulum as $item)
+                                <option value="{{$item->id}}">{{$item->kurikulum}}</option>
+                            @endforeach
                         </select>
                     </div>
                 </div>
@@ -126,7 +130,9 @@
                         <div class="form-group">
                             <label>Data Jenjang</label>
                             <select class="form-control" name="jenjang" id="list_jenjang" required>
-                                <option value="" selected Disabled>Select Jenjang</option>
+                                @foreach ($jenjang as $item)
+                                    <option value="{{$item->id}}">{{$item->jenjang}}</option>
+                                @endforeach
                             </select>
                         </div>
                     </div>
@@ -134,7 +140,9 @@
                         <div class="form-group">
                             <label>Data Kurikulum</label>
                             <select class="form-control" name="kurikulum" id="list_kurikulum">
-                                <option value="-" selected>Select Kurikulum</option>
+                                @foreach ($kurikulum as $item)
+                                    <option value="{{$item->id}}">{{$item->kurikulum}}</option>
+                                @endforeach
                             </select>
                         </div>
                     </div>
@@ -184,50 +192,9 @@
 
 <script type="text/javascript">
 
-    $(document).ready(function(){
-        list_jenjang();
-        list_kurikulum();
-    })
-
     $('#button_tambah_mapel').click(function(){
         $('#add_mapel').modal('show');
     })
-
-
-    function list_jenjang()
-    {
-        $.ajax({
-            url:'/admin/pembelajaran/mapel/list_jenjang',
-            type:'get',
-            dataType:'json',
-            success:function(response){
-                console.log(response.jenjang);
-                $.each(response, function(key, value) {   
-                    $('#list_jenjang')
-                        .append($("<option></option>")
-                        .attr("value", value.jenjang)
-                        .text(value.jenjang)); 
-                });
-            }
-        })
-    }    
-
-    function list_kurikulum()
-    {
-        $.ajax({
-            url:'/admin/pembelajaran/mapel/list_kurikulum',
-            type:'get',
-            dataType:'json',
-            success:function(response){
-                $.each(response, function(key, value) {   
-                    $('#list_kurikulum')
-                        .append($("<option></option>")
-                        .attr("value", value.kurikulum)
-                        .text(value.kurikulum)); 
-                });
-            }
-        })
-    }    
 
     function hapus(id){
         console.log(id);

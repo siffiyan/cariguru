@@ -387,7 +387,6 @@
                   <br>
                   <small style="float-right">By {{$item->created_by}}</small>
                   <h6 class="card-title"><b>{{$item->judul}}</b></h6>
-                  <p class="card-text">{!! substr($item->content, 0, 50) . '...' !!}</p>
                   <a href="#"><small class="text-danger">Baca Selengkapnya...</small></a>
                 </div>
               </div>

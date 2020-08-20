@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Tentor;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\DB;
 use App\Models\Blog;
 
 class BlogController extends Controller
@@ -16,7 +17,7 @@ class BlogController extends Controller
      */
     public function index()
     {
-        $data['blog'] = Blog::where('created_by',session()->get('nama'))->get();
+        $data['blog'] = Blog::where('created_by',session()->get('id'))->get();
         return view('tentor.blog.index',$data);
     }
 
@@ -62,7 +63,9 @@ class BlogController extends Controller
                 'status' => 'pending',
                 'kategori' => $request->kategori,
                 'content' => $request->content,
-                'created_by' => session()->get('nama'),
+                'created_by' => session()->get('id'),
+                'isactive' => '1',
+                'role' => 'Tentor',
             ]
         );
         return redirect('/tentor/blog/index')->with('msg', 'data Blog berhasil ditambahkan'); 
@@ -76,7 +79,11 @@ class BlogController extends Controller
      */
     public function show($id)
     {
-        $data['blog'] = Blog::find($id);
+        $data['blog'] = DB::table('blog')
+                        ->leftJoin('mitra', 'blog.created_by', '=', 'mitra.id')
+                        ->select('blog.*', 'mitra.nama')
+                        ->where('blog.id',$id)
+                        ->first();
         return view('tentor.blog.detail',$data);
     }
 
@@ -89,7 +96,6 @@ class BlogController extends Controller
     public function edit($id)
     {
         $data['blog'] = Blog::find($id);
-
         return view('tentor.blog.update',$data);
     }
 
@@ -104,7 +110,7 @@ class BlogController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'judul' => 'required',
-            // 'image' => 'required|file|image|mimes:jpeg,png,jpg|max:2048',
+            'image' => 'file|image|mimes:jpeg,png,jpg|max:2048',
             'kategori' => 'required',
             'content' => 'required'
         ]);
