@@ -91,9 +91,12 @@ Route::prefix('tentor')->group(function () {
 	Route::get('dashboard','Tentor\DashboardController@index');
 
 	Route::get('profil','Tentor\ProfilController@index');
+	Route::put('profil','Tentor\ProfilController@update');
 	Route::post('profil/pengalaman_mengajar_mitra','Tentor\ProfilController@store_pengalaman_mengajar_mitra');
 
 	Route::post('prestasi_mitra','Tentor\PrestasiMitraController@store');
+
+	Route::post('pilihan_mengajar_mitra','Tentor\PilihanMengajarMitraController@store');
 
 	Route::prefix('blog')->group(function() {
 		Route::delete('delete','Tentor\BlogController@destroy');
