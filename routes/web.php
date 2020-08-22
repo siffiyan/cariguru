@@ -78,6 +78,16 @@ Route::prefix('admin')->group(function () {
 
 });
 
+Route::prefix('siswa')->group(function () {
+
+	Route::get('login','Siswa\AuthController@login');
+	Route::post('login','Siswa\AuthController@login_action');
+	
+	Route::get('dashboard','Siswa\DashboardController@index');
+
+
+});
+
 Route::prefix('tentor')->group(function () {
 
 	Route::resource('blog', 'Tentor\BlogController');
@@ -92,11 +102,21 @@ Route::prefix('tentor')->group(function () {
 
 	Route::get('profil','Tentor\ProfilController@index');
 	Route::put('profil','Tentor\ProfilController@update');
-	Route::post('profil/pengalaman_mengajar_mitra','Tentor\ProfilController@store_pengalaman_mengajar_mitra');
+
+	Route::post('pengalaman_mengajar_mitra','Tentor\PengalamanMengajarMitraController@store');
+	Route::get('pengalaman_mengajar_mitra/{id}/edit','Tentor\PengalamanMengajarMitraController@edit');
+	Route::put('pengalaman_mengajar_mitra','Tentor\PengalamanMengajarMitraController@update');
+	Route::delete('pengalaman_mengajar_mitra','Tentor\PengalamanMengajarMitraController@destroy');
 
 	Route::post('prestasi_mitra','Tentor\PrestasiMitraController@store');
+	Route::get('prestasi_mitra/{id}/edit','Tentor\PrestasiMitraController@edit');
+	Route::put('prestasi_mitra','Tentor\PrestasiMitraController@update');
+	Route::delete('prestasi_mitra','Tentor\PrestasiMitraController@destroy');
 
 	Route::post('pilihan_mengajar_mitra','Tentor\PilihanMengajarMitraController@store');
+	Route::get('pilihan_mengajar_mitra/{id}/edit','Tentor\PilihanMengajarMitraController@edit');
+	Route::put('pilihan_mengajar_mitra','Tentor\PilihanMengajarMitraController@update');
+	Route::delete('pilihan_mengajar_mitra','Tentor\PilihanMengajarMitraController@destroy');
 
 	Route::prefix('blog')->group(function() {
 		Route::delete('delete','Tentor\BlogController@destroy');

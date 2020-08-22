@@ -89,10 +89,10 @@
     </div>
   </section>
   <main id="main">
-    <section class="counts section-bg">
+    <section class="counts section-bg" style="background-color: #138D75;">
       <div class="container">
           <div class="section-title">
-            <p>Bingung? Yuk tanya kita di Whatsapp &nbsp; <a href="https://api.whatsapp.com/send?phone=6282231826490&text=Halo Cari Guru" target="_blank" class="btn btn-danger rounded-pill" style="background-color: #13c347;border-color: #13c347"> <i class="fa fa-whatsapp"></i> Konsultasi Sekarang!</a></p>
+            <p style="color: white;font-size: 18px;font-weight: 700">Bingung? Yuk tanya kita di Whatsapp &nbsp; <a href="https://api.whatsapp.com/send?phone=6282231826490&text=Halo Cari Guru" target="_blank" class="btn btn-danger rounded-pill" style="background-color: #13c347;border-color: #13c347;"> Konsultasi Sekarang!</a></p>
           </div>
       </div>
     </section>
