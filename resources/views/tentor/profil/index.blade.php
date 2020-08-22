@@ -151,7 +151,7 @@
 	<td>{{$r->tahun_akhir}}</td>
 	<td>
 	<button class="btn btn-success" onclick="edit_pengalaman({{$r->id}})"><i class="fe fe-pencil"></i></button>
-    <button class="btn btn-danger" onclick="hapus_pengalman({{$r->id}})"><i class="fe fe-trash"></i></button>
+    <button class="btn btn-danger" onclick="hapus_pengalaman({{$r->id}})"><i class="fe fe-trash"></i></button>
 	</td>
 </tr>
 @endforeach
@@ -232,8 +232,8 @@
 	<td>{{$r->kurikulum}}</td>
 	<td>{{$r->mata_pelajaran}}</td>
 	<td>
-	<button class="btn btn-success" onclick="edit_prestasi({{$r->id}})"><i class="fe fe-pencil"></i></button>
-    <button class="btn btn-danger" onclick="hapus_prestasi({{$r->id}})"><i class="fe fe-trash"></i></button>
+	<button class="btn btn-success" onclick="edit_pilihan_mengajar({{$r->id}})"><i class="fe fe-pencil"></i></button>
+    <button class="btn btn-danger" onclick="hapus_pilihan_mengajar({{$r->id}})"><i class="fe fe-trash"></i></button>
 	</td>
 </tr>
 @endforeach
@@ -269,6 +269,173 @@ $('#button_tambah_pilihan_mengajar').click(function(e){
 	e.preventDefault();
 	$('#modal_tambah_pilihan_mengajar').modal('show');
 })
+
+function edit_pengalaman(id){
+		$.ajax({
+			url:'/tentor/pengalaman_mengajar_mitra/'+id+'/edit',
+			type:'get',
+			dataType:'json',
+			success:function(response){
+
+				$('#tahun_awal').empty();
+				$.each(response.tahun_awal,function(i,value){
+					if(value==response.pengalaman.tahun_awal){
+						$('#tahun_awal').append(`
+						<option selected value=`+value+`>`+value+`</option>
+					`);
+					}	
+
+					else{
+						$('#tahun_awal').append(`
+						<option value=`+value+`>`+value+`</option>
+					`);
+					}
+					
+				});
+
+				$('#tahun_akhir').empty();
+				$.each(response.tahun_akhir,function(i,value){
+					console.log(value == response.pengalaman.tahun_akhir);
+					if(value == response.pengalaman.tahun_akhir){
+						$('#tahun_akhir').append(`
+						<option selected value="Sampai Sekarang">`+value+`</option>
+					`);
+					}
+
+					else{
+						$('#tahun_akhir').append(`
+						<option value=`+value+`>`+value+`</option>
+					`);
+					}
+			
+				});
+
+				$('#id_pengalaman_edit').val(id);
+				$('#nama_sekolah').val(response.pengalaman.nama_sekolah);
+				$('#modal_edit_pengalaman_mengajar').modal('show');
+			},
+			error:function(){
+				alert('error');
+			}
+		});	
+}
+
+function hapus_pengalaman(id){
+
+	$('#id_pengalaman_hapus').val(id);
+	$('#modal_hapus_pengalaman').modal('show');
+}
+
+function edit_prestasi(id){
+	$.ajax({
+			url:'/tentor/prestasi_mitra/'+id+'/edit',
+			type:'get',
+			dataType:'json',
+			success:function(response){
+
+				$('#tahun_prestasi').empty();
+				$.each(response.tahun,function(i,value){
+					if(value==response.prestasi.tahun){
+						$('#tahun_prestasi').append(`
+						<option selected value=`+value+`>`+value+`</option>
+					`);
+					}	
+
+					else{
+						$('#tahun_prestasi').append(`
+						<option value=`+value+`>`+value+`</option>
+					`);
+					}
+					
+				});
+
+				$('#id_prestasi_edit').val(id);
+				$('#keterangan_prestasi').val(response.prestasi.keterangan_prestasi);
+				$('#modal_edit_prestasi').modal('show');
+			},
+			error:function(){
+				alert('error');
+			}
+		});	
+}
+
+function hapus_prestasi(id){
+
+	$('#id_prestasi_hapus').val(id);
+	$('#modal_hapus_prestasi').modal('show');
+}
+
+function edit_pilihan_mengajar(id){
+
+$.ajax({
+			url:'/tentor/pilihan_mengajar_mitra/'+id+'/edit',
+			type:'get',
+			dataType:'json',
+			success:function(response){
+
+				$('#jenjang').empty();
+				$.each(response.jenjang,function(i,value){
+					if(value.id==response.pilihan.jenjang_id){
+						$('#jenjang').append(`
+						<option selected value=`+value.id+`>`+value.jenjang+`</option>
+					`);
+					}	
+
+					else{
+						$('#jenjang').append(`
+						<option value=`+value.id+`>`+value.jenjang+`</option>
+					`);
+					}
+					
+				});
+
+				$('#kurikulum').empty();
+				$.each(response.kurikulum,function(i,value){
+					if(value.id==response.pilihan.kurikulum_id){
+						$('#kurikulum').append(`
+						<option selected value=`+value.id+`>`+value.kurikulum+`</option>
+					`);
+					}	
+
+					else{
+						$('#kurikulum').append(`
+						<option value=`+value.id+`>`+value.kurikulum+`</option>
+					`);
+					}
+					
+				});
+
+				$('#mapel').empty();
+				$.each(response.mapel,function(i,value){
+					if(value.id==response.pilihan.mapel_id){
+						$('#mapel').append(`
+						<option selected value=`+value.id+`>`+value.mata_pelajaran+`</option>
+					`);
+					}	
+
+					else{
+						$('#mapel').append(`
+						<option value=`+value.id+`>`+value.mata_pelajaran+`</option>
+					`);
+					}
+					
+				});
+
+				$('#id_pilihan_mengajar_edit').val(id);
+				$('#modal_edit_pilihan_mengajar').modal('show');
+			},
+			error:function(){
+				alert('error');
+			}
+		});	
+
+}
+
+function hapus_pilihan_mengajar(id){
+
+	$('#id_pilihan_mengajar_hapus').val(id);
+	$('#modal_hapus_pilihan_mengajar').modal('show');
+}
 	
 </script>
 
@@ -285,7 +452,7 @@ $('#button_tambah_pilihan_mengajar').click(function(e){
 </button>
 </div>
 <div class="modal-body">
-<form action="/tentor/profil/pengalaman_mengajar_mitra" method="post">
+<form action="/tentor/pengalaman_mengajar_mitra" method="post">
 @csrf
 
 <div class="row">
@@ -333,6 +500,86 @@ $('#button_tambah_pilihan_mengajar').click(function(e){
 </div>
 <!-- Modal Tambah Pengalaman mengajar -->
 
+<!--  Modal Edit Pengalaman mengajar -->
+<div class="modal fade custom-modal" id="modal_edit_pengalaman_mengajar">
+<div class="modal-dialog modal-dialog-centered">
+<div class="modal-content">
+<div class="modal-header">
+<h5 class="modal-title">Form Edit Pengalaman Mengajar</h5>
+<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+<span aria-hidden="true">&times;</span>
+</button>
+</div>
+<div class="modal-body">
+<form action="/tentor/pengalaman_mengajar_mitra" method="post">
+<input type="hidden" name="_method" value="put">
+@csrf
+
+<div class="row">
+
+<input type="hidden" name="id_pengalaman" id="id_pengalaman_edit">
+
+<div class="col-12 col-md-12">
+<div class="form-group">
+<label>Nama Institusi/Sekolah</label>
+<input type="text" class="form-control" id="nama_sekolah" name="nama_sekolah">
+</div>
+</div>
+
+<div class="col-12 col-md-6">
+<div class="form-group">
+<label>Tahun Awal Mengajar</label>
+<select class="form-control select" id="tahun_awal" name="tahun_awal">
+
+</select>
+</div>
+</div>
+
+
+<div class="col-12 col-md-6">
+<div class="form-group">
+<label>Tahun Akhir Mengajar</label>
+<select class="form-control select" id="tahun_akhir" name="tahun_akhir">
+
+</select>
+</div>
+</div>
+
+</div>
+
+<div  style="float: right;">
+	<button class="btn btn-primary" type="submit">Submit</button>
+</div>
+
+</form>
+</div>
+</div>
+</div>
+</div>
+<!-- Modal Edit Pengalaman mengajar -->
+
+<!-- Modal Hapus Pengalaman -->
+<form action="/tentor/pengalaman_mengajar_mitra" method="post">
+<input type="hidden" name="_method" value="delete">
+{{csrf_field()}}
+<div class="modal fade" id="modal_hapus_pengalaman" role="dialog" style="display: none;" aria-hidden="true">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-body">
+				<div class="form-content p-2">
+					<h4 class="modal-title">Delete</h4>
+					<input type="hidden" name="id_pengalaman" id="id_pengalaman_hapus">
+					<p class="mb-4">Are you sure want to delete?</p>
+					<button type="submit" class="btn btn-primary">Delete </button>
+					<button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</form>
+<!-- Modal Hapus Pengalaman -->
+
 <!--  Modal Tambah Prestasi -->
 <div class="modal fade custom-modal" id="modal_tambah_prestasi">
 <div class="modal-dialog modal-dialog-centered">
@@ -379,6 +626,76 @@ $('#button_tambah_pilihan_mengajar').click(function(e){
 </div>
 </div>
 <!-- Modal Tambah Prestasi -->
+
+<!-- Modal Edit Prestasi -->
+<div class="modal fade custom-modal" id="modal_edit_prestasi">
+<div class="modal-dialog modal-dialog-centered">
+<div class="modal-content">
+<div class="modal-header">
+<h5 class="modal-title">Form Edit Pengalaman Mengajar</h5>
+<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+<span aria-hidden="true">&times;</span>
+</button>
+</div>
+<div class="modal-body">
+<form action="/tentor/prestasi_mitra" method="post">
+@csrf
+@method('put')
+
+<div class="row">
+
+<input type="hidden" name="id_prestasi" id="id_prestasi_edit">
+
+<div class="col-12 col-md-12">
+<div class="form-group">
+<label>Keterangan Prestasi</label>
+<input type="text" class="form-control" id="keterangan_prestasi" name="keterangan_prestasi" required>
+</div>
+</div>
+
+<div class="col-12 col-md-12">
+<div class="form-group">
+<label>Tahun</label>
+<select class="form-control select" id="tahun_prestasi" name="tahun">
+
+</select>
+</div>
+</div>
+
+</div>
+
+<div  style="float: right;">
+	<button class="btn btn-primary">Submit</button>
+</div>
+
+</form>
+</div>
+</div>
+</div>
+</div>
+<!-- Modal Edit Prestasi -->
+
+<!-- Modal Hapus Prestasi -->
+<form action="/tentor/prestasi_mitra" method="post">
+<input type="hidden" name="_method" value="delete">
+{{csrf_field()}}
+<div class="modal fade" id="modal_hapus_prestasi" role="dialog" style="display: none;" aria-hidden="true">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-body">
+				<div class="form-content p-2">
+					<h4 class="modal-title">Delete</h4>
+					<input type="hidden" name="id_prestasi" id="id_prestasi_hapus">
+					<p class="mb-4">Are you sure want to delete?</p>
+					<button type="submit" class="btn btn-primary">Delete </button>
+					<button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</form>
+<!-- Modal Hapus Prestasi -->
 
 <!--  Modal Tambah Pilihan Mengajar -->
 <div class="modal fade custom-modal" id="modal_tambah_pilihan_mengajar">
@@ -441,3 +758,83 @@ $('#button_tambah_pilihan_mengajar').click(function(e){
 </div>
 </div>
 <!--  Modal Tambah Pilihan Mengajar -->
+
+<!--  Modal Edit Pilihan Mengajar -->
+<div class="modal fade custom-modal" id="modal_edit_pilihan_mengajar">
+<div class="modal-dialog modal-dialog-centered">
+<div class="modal-content">
+<div class="modal-header">
+<h5 class="modal-title">Form Edit Pengalaman Mengajar</h5>
+<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+<span aria-hidden="true">&times;</span>
+</button>
+</div>
+<div class="modal-body">
+<form action="/tentor/pilihan_mengajar_mitra" method="post">
+@csrf
+@method('put')
+
+<div class="row">
+
+<input type="hidden" name="id_pilihan_mengajar" id="id_pilihan_mengajar_edit">
+<div class="col-12 col-md-6">
+<div class="form-group">
+<label>Jenjang</label>
+<select class="form-control select" id="jenjang" name="jenjang_id">
+
+</select>
+</div>
+</div>
+
+<div class="col-12 col-md-6">
+<div class="form-group">
+<label>Kurikulum</label>
+<select class="form-control select" id="kurikulum" name="kurikulum_id">
+
+</select>
+</div>
+</div>
+
+<div class="col-12 col-md-12">
+<div class="form-group">
+<label>Mata Pelajaran</label>
+<select class="form-control select" id="mapel" name="mapel_id">
+
+</select>
+</div>
+</div>
+
+</div>
+
+<div  style="float: right;">
+	<button class="btn btn-primary">Submit</button>
+</div>
+
+</form>
+</div>
+</div>
+</div>
+</div>
+<!--  Modal Edit Pilihan Mengajar -->
+
+<!-- Modal Hapus Pilihan Mengajar -->
+<form action="/tentor/pilihan_mengajar_mitra" method="post">
+<input type="hidden" name="_method" value="delete">
+{{csrf_field()}}
+<div class="modal fade" id="modal_hapus_pilihan_mengajar" role="dialog" style="display: none;" aria-hidden="true">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-body">
+				<div class="form-content p-2">
+					<h4 class="modal-title">Delete</h4>
+					<input type="hidden" name="id_pilihan_mengajar" id="id_pilihan_mengajar_hapus">
+					<p class="mb-4">Are you sure want to delete?</p>
+					<button type="submit" class="btn btn-primary">Delete </button>
+					<button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</form>
+<!-- Modal Hapus Pilihan Mengajar -->

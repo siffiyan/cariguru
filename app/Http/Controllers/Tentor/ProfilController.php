@@ -45,14 +45,4 @@ class ProfilController extends Controller
         return redirect('/tentor/profil')->with('msg','Data profil berhasil diedit');
     }
 
-    public function store_pengalaman_mengajar_mitra(Request $request){
-
-    	$data = $request->all();
-    	$data['mitra_id'] = session('id');
-    	PengalamanMengajarMitra::create($data);
-
-    	return redirect('/tentor/profil')->with('msg','Pengalaman mengajar berhasil ditambahkan');
-
-    }
-
 }

@@ -53,7 +53,7 @@
                             <th>Image</th>
                             <th>Judul Blog</th>
                             <th>Kategori</th>
-                            <th>Konten</th>
+                           <!--  <th>Konten</th> -->
                             <th class="text-center">Status</th>
                             <th class="text-center">Keterangan</th>
                             <th>Action</th>
@@ -67,7 +67,7 @@
                             <td width="15%"> <a href="/berkas/blog/{{$a->image}}" target="_blank"><img src="{{asset('berkas/blog/'.$a->image)}}" class="make_bigger" width="100px" height="100px" alt=""></a></td>
                             <td>{{$a->judul}}</td>
                             <td>{{$a->kategori}}</td>
-                            <td> {!! $a->content !!} </td>
+                           <!--  <td> {!! $a->content !!} </td> -->
                             <td class="text-center">
                                 @if($a->isactive == '1')
                                     <button type="button" class="btn btn-success btn-sm" onclick="inactive({{$a->id}})"> <i class="fa fa-check"></i></button>
@@ -100,7 +100,7 @@
 
 <!-- Delete Model -->
 <form action="/admin/blog/blog" method="post">
-    @method('delete');
+    @method('delete')
     @csrf
     <div class="modal fade" id="delete_modal" role="dialog" style="display: none;" aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -122,7 +122,7 @@
 
 <!-- Active Model -->
 <form action="/admin/blog/active" method="post">
-    @method('patch');
+    @method('patch')
     @csrf
     <div class="modal fade" id="active_modal" role="dialog" style="display: none;" aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -144,7 +144,7 @@
 
 <!-- Active Model -->
 <form action="/admin/blog/inactive" method="post">
-    @method('patch');
+    @method('patch')
     @csrf
     <div class="modal fade" id="inactive_modal" role="dialog" style="display: none;" aria-hidden="true">
         <div class="modal-dialog" role="document">
