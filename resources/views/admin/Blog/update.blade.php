@@ -1,6 +1,6 @@
 @extends('admin.template.master')
 
-@section('title', 'Add Blog')
+@section('title', 'Edit Blog')
     
 @section('content')
 
@@ -66,7 +66,7 @@
                                 <div class="form-group">
                                     <label>Deskripsi Blog</label>
                                     {{-- <textarea cols="30" rows="6" class="form-control"></textarea> --}}
-                                    <textarea id="content" name="content" required></textarea>
+                                    <textarea id="content" name="content" required>{!! $blog->content !!}</textarea>
                                 </div>
                                 <div class="m-t-20 text-center">
                                     <button type="submit" class="btn btn-primary btn-sm pull-right">Save Changes</button>
@@ -92,7 +92,7 @@
     CKEDITOR.replace('content');
     $(document).ready(function(){
         $('#kategori-list').val('{{$blog->kategori}}').prop('selected', true);
-        CKEDITOR.instances['content'].setData('{!! $blog->content !!}');
+        //CKEDITOR.instances['content'].setData('{!! $blog->content !!}');
     });
 </script>
 @endsection
