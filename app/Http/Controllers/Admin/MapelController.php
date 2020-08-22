@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\DB;
 use App\Models\Mapel;
 use App\Models\Jenjang;
 use App\Models\Kurikulum;
@@ -18,19 +19,11 @@ class MapelController extends Controller
      */
     public function index()
     {
-        $data['mapel'] = Mapel::all();
+        $data['mapel'] = DB::table('mata_pelajaran')->join('jenjang','mata_pelajaran.jenjang','=','jenjang.id')->join('kurikulum','mata_pelajaran.kurikulum','=','kurikulum.id')->select('mata_pelajaran.*','jenjang.jenjang','kurikulum.kurikulum')->get();
+        $data['jenjang'] = Jenjang::all();
+        $data['kurikulum'] = Kurikulum::all();
 
         return view('admin.pembelajaran.mapel.index', $data);
-    }
-
-    public function list_jenjang()
-    {
-        return Jenjang::all();
-    }
-
-    public function list_kurikulum()
-    {
-        return Kurikulum::all();
     }
 
     /**

@@ -5,7 +5,9 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\DB;
 use App\Models\Blog;
+use App\Models\Poin;
 
 class BlogController extends Controller
 {
@@ -16,7 +18,8 @@ class BlogController extends Controller
      */
     public function index()
     {
-        $data['blog'] = Blog::all();
+        $data['blog_tentor'] = DB::table('blog')->leftJoin('mitra', 'blog.created_by', '=', 'mitra.id')->select('blog.*','mitra.nama')->where('role','Tentor')->get();
+        $data['blog_admin'] = DB::table('blog')->where('role','Super Admin')->get();
         return view('admin.blog.index',$data);
     }
 
@@ -61,7 +64,9 @@ class BlogController extends Controller
                 'image' => $photo,
                 'kategori' => $request->kategori,
                 'content' => $request->content,
-                'created_by' => 'Super Admin',
+                'created_by' => session()->get('id'),
+                'role' => 'Super Admin',
+                'isactive' => '1',
             ]
         );
         return redirect('admin/blog/dashboard')->with('msg', 'data Blog berhasil ditambahkan'); 
@@ -75,7 +80,7 @@ class BlogController extends Controller
      */
     public function show($id)
     {
-        $data['blog'] = Blog::find($id);
+        $data['blog'] = DB::table('blog')->leftJoin('mitra', 'blog.created_by', '=', 'mitra.id')->select('blog.*','mitra.nama')->where('blog.id',$id)->first();
         return view('admin.blog.detail',$data);
     }
 
@@ -88,7 +93,6 @@ class BlogController extends Controller
     public function edit($id)
     {
         $data['blog'] = Blog::find($id);
-
         return view('admin.blog.update',$data);
     }
 
@@ -103,7 +107,7 @@ class BlogController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'judul' => 'required',
-            // 'image' => 'required|file|image|mimes:jpeg,png,jpg|max:2048',
+            'image' => 'file|image|mimes:jpeg,png,jpg|max:2048',
             'kategori' => 'required',
             'content' => 'required'
         ]);
@@ -125,7 +129,6 @@ class BlogController extends Controller
             $request->file('image')->move($destination, $photo);
             $blog->image = $photo;
         }
-
         $blog->save();
 
         return redirect('admin/blog/dashboard')->with('msg', 'data Blog berhasil diubah'); ;
@@ -162,11 +165,17 @@ class BlogController extends Controller
 
     }
 
-    public function approve($id)
+    public function approve(Request $request, $id)
     {
         $blog = Blog::find($id);
         $blog->status = 'approve';
         $blog->save();
+
+        $poin = Poin::create([
+            'mitra_id' => $request->mitra_id,
+            'poin' => 2,
+            'keterangan' => 'Berhasil Approve Blog',
+        ]);
 
         return json_encode([
             "code" => 200,

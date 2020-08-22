@@ -90,6 +90,8 @@ Route::prefix('siswa')->group(function () {
 
 Route::prefix('tentor')->group(function () {
 
+	Route::resource('blog', 'Tentor\BlogController');
+
 	Route::get('login','Tentor\AuthController@login');
 	Route::post('login','Tentor\AuthController@login_action');
 	Route::get('logout','Tentor\AuthController@logout');
@@ -117,8 +119,6 @@ Route::prefix('tentor')->group(function () {
 	Route::delete('pilihan_mengajar_mitra','Tentor\PilihanMengajarMitraController@destroy');
 
 	Route::prefix('blog')->group(function() {
-		Route::resource('blog', 'Tentor\BlogController');
-		Route::get('index','Tentor\BlogController@index');
 		Route::delete('delete','Tentor\BlogController@destroy');
 	});
 

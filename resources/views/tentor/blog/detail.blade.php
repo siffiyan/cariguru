@@ -15,7 +15,7 @@
                         <span class="course-title">{{$blog->judul}}</span>
                         <div class="d-flex flex-wrap date-col">
                             <span class="date"><i class="fas fa-calendar-check"></i> {{date('d F Y', strtotime($blog->created_at))}}</span>
-                            <span class="author"><i class="fe fe-user"></i> By {{$blog->created_by}}</span>
+                            <span class="author"><i class="fe fe-user"></i> By {{$blog->nama}}</span>
                         </div>
                         <div class="blog-details-img">
                             <img class="img-fluid" src="{{asset('berkas/blog/'.$blog->image)}}" alt="Post Image">
@@ -64,7 +64,7 @@
                         <img class="rounded-circle" src="assets/img/profiles/avatar-12.jpg" width="120" alt="Ryan Taylor">
                     </div> --}}
                     <div class="right">
-                        <h5>{{$blog->created_by}}</h5>
+                        <h5>{{$blog->nama}}</h5>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
                     </div>
                 </div>

@@ -35,13 +35,7 @@
                                 @csrf
                                 <input type="hidden" name="status" value="approve">
                                 <div class="row">
-                                    <div class="col-md-2">
-                                        <div class="form-group">
-                                            <label>Tanggal Blog</label>
-                                            <input type="date" value="<?php echo date("Y-m-d")?>" class="form-control" readonly>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-10">
+                                    <div class="col-md-12">
                                         <div class="form-group">
                                             <label>Judul Blog</label>
                                             <input class="form-control" type="text" name="judul" required>
@@ -75,8 +69,8 @@
                                     {{-- <textarea cols="30" rows="6" class="form-control"></textarea> --}}
                                     <textarea id="content" name="content" required></textarea>
                                 </div>
-                                <div class="m-t-20 text-center">
-                                    <button type="submit" class="btn btn-primary btn-lg">Save Changes</button>
+                                <div class="m-t-20 text-right">
+                                    <button type="submit" class="btn btn-primary btn-sm">Save Changes</button>
                                 </div>
                             </form>
                         </div>
