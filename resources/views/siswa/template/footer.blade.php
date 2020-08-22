@@ -7,6 +7,8 @@
 		
 		<!-- Custom JS -->
 		<script src="{{asset('template/mentoring/html/assets/js/script.js')}}"></script>
+
+		@yield('js')
 		
 	</body>
 </html>

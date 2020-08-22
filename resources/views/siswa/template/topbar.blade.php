@@ -28,7 +28,7 @@
 								<a href="/siswa/dashboard">Dashboard</a>
 							</li>
 							<li>
-								<a href="index.html">Cari Guru</a>
+								<a href="{{route('cariguru.index')}}">Cari Guru</a>
 							</li>					
 						</ul>		 
 					</div>		 
