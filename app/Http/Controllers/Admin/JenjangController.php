@@ -36,11 +36,6 @@ class JenjangController extends Controller
 
         Jenjang::destroy($request->id);
 
-        // $id = $request->id;
-
-        // $jenjang = Jenjang::findOrFail($id);
-        // $jenjang->delete();
-
         return redirect()->back()->with('msg','data Jenjang berhasil hapus');
     }
 
