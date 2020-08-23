@@ -29,12 +29,12 @@
         <div class="card">
             <div class="card-body">
                 <!-- Blog list -->
-        
+                <div class="row">
                     @if($blog->count()>0)
                     @foreach ($blog as $item)
                     <div class="col-12 col-md-4">
                         <div class="course-box blog grid-blog">
-                            <div class="blog-image mb-0">
+                            <div class="blog-image mb-0" style="width:325px;height:200px">
                             <a href="{{route('blog.show',$item->id)}}"><img src="{{asset('berkas/blog/'.$item->image)}}"></a>
                             </div>
                             <div class="course-content">
@@ -51,7 +51,6 @@
                                 <br>
                                 <span class="course-title">{{$item->judul}}</span>
                                 {!! substr($item->content, 0, 50) !!}
-                                <br>
                                 <a href="{{route('blog.show',$item->id)}}"><small class="text-danger">Baca Selengkapnya...</small></a>
 
                                 <div class="row mt-3">
@@ -70,6 +69,7 @@
                         </div>
                     </div>
                     @endforeach
+                </div>
                     @else
                     <div style="border:2px dashed black;padding: 25px;text-align: center;">
                         Anda belum memiliki artikel/ blog

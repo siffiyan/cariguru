@@ -69,7 +69,7 @@ class BlogController extends Controller
                 'role' => 'Tentor',
             ]
         );
-        return redirect('/tentor/blog/index')->with('msg', 'data Blog berhasil ditambahkan'); 
+        return redirect('/tentor/blog')->with('msg', 'data Blog berhasil ditambahkan'); 
     }
 
     /**
