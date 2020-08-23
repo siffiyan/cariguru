@@ -64,7 +64,8 @@ class BlogController extends Controller
                 'image' => $photo,
                 'kategori' => $request->kategori,
                 'content' => $request->content,
-                'created_by' => session()->get('id'),
+                // 'created_by' => session()->get('id'),
+                'created_by' => 'admin',
                 'role' => 'Super Admin',
                 'isactive' => '1',
             ]

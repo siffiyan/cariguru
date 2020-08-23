@@ -18,6 +18,7 @@ class BlogController extends Controller
     public function index()
     {
         $data['blog'] = Blog::where('created_by',session()->get('id'))->get();
+
         return view('tentor.blog.index',$data);
     }
 
