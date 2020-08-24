@@ -19,6 +19,7 @@ class CreateDiskonTable extends Migration
             $table->date('tanggal_mulai');
             $table->date('tanggal_akhir');
             $table->integer('admin_id');
+            $table->integer('presentase');
             $table->timestamps();
 
             $table->foreign('admin_id')->references('id')->on('admin')->onDelete('cascade');
