@@ -90,8 +90,6 @@ Route::prefix('siswa')->group(function () {
 
 	Route::resource('checkout', 'Siswa\CheckoutController');
 	Route::get('checkout/promo/{promo}','Siswa\CheckoutController@promo');
-
-
 });
 
 Route::prefix('tentor')->group(function () {
@@ -105,6 +103,8 @@ Route::prefix('tentor')->group(function () {
 	Route::put('ubah_password_action','Tentor\AuthController@ubah_password_action');
 
 	Route::get('dashboard','Tentor\DashboardController@index');
+
+	Route::get('/log_point','Tentor\PointController@index');
 
 	Route::get('profil','Tentor\ProfilController@index');
 	Route::put('profil','Tentor\ProfilController@update');

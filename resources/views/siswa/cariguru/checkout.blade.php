@@ -231,19 +231,19 @@
                     <div class="col-md-6 col-sm-12">
                         <div class="form-group card-label">
                             <label>Tanggal Pertemuan `+i+`</label>
-                            <input class="form-control" type="text" id="jumlah_pertemuan">
+                            <input class="form-control" type="date" id="jumlah_pertemuan">
                         </div>
                     </div>
                     <div class="col-md-3 col-sm-12">
                         <div class="form-group card-label">
                             <label>Waktu Mulai `+i+`</label>
-                            <input class="form-control" type="text" id="jumlah_pertemuan">
+                            <input class="form-control" type="time" id="jumlah_pertemuan">
                         </div>
                     </div>
                     <div class="col-md-3 col-sm-12">
                         <div class="form-group card-label">
                             <label>Waktu Selesai `+i+`</label>
-                            <input class="form-control" type="text" id="jumlah_pertemuan">
+                            <input class="form-control" type="time" id="jumlah_pertemuan">
                         </div>
                     </div>
                 `);

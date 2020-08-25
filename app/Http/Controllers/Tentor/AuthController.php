@@ -30,6 +30,7 @@ class AuthController extends Controller
 				Session::put('email',$data->email);
 				Session::put('id',$data->id);
 				Session::put('nama',$data->nama);
+				Session::put('poin',$data->poin);
                 Session::put('login',TRUE);
 
                return redirect('/tentor/dashboard');

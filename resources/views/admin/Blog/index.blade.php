@@ -48,57 +48,9 @@
 
     <div class="card">
         <div class="card-header">
-            <h4 class="card-title">Data User</h4>
+            <h4 class="card-title">Data Blog</h4>
         </div>
         <div class="card-body">
-            <div class="table-responsive">
-                <table class="datatable table table-stripped">
-                    <thead>
-                        <tr>
-                            <th>No</th>
-                            <th>Image</th>
-                            <th>Judul Blog</th>
-                            <th>Kategori</th>
-                           <!--  <th>Konten</th> -->
-                            <th class="text-center">Status</th>
-                            <th class="text-center">Keterangan</th>
-                            <th>Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach($blog as $a)
-                    
-                        <tr>
-                            <td>{{$loop->iteration}}</td>
-                            <td width="15%"> <a href="/berkas/blog/{{$a->image}}" target="_blank"><img src="{{asset('berkas/blog/'.$a->image)}}" class="make_bigger" width="100px" height="100px" alt=""></a></td>
-                            <td>{{$a->judul}}</td>
-                            <td>{{$a->kategori}}</td>
-                           <!--  <td> {!! $a->content !!} </td> -->
-                            <td class="text-center">
-                                @if($a->isactive == '1')
-                                    <button type="button" class="btn btn-success btn-sm" onclick="inactive({{$a->id}})"> <i class="fa fa-check"></i></button>
-                                @elseif($a->isactive == '0')
-                                    <button class="btn btn-danger btn-sm" onclick="active({{$a->id}})"> <i class="fa fa-times"></i></button>
-                                @endif
-                            </td>
-                            <td class="text-center">
-                                @if($a->status == 'pending')
-                                    <a onclick="approval({{$a->id}})" class="badge badge-pill bg-warning inv-badge text-white" style="cursor:pointer">pending</a>
-                                    @elseif($a->status == 'approve')
-                                    <a class="badge badge-pill bg-success inv-badge text-white" style="cursor: not-allowed">approve</a>
-                                    @else
-                                    <a class="badge badge-pill bg-danger inv-badge text-white" style="cursor: not-allowed">reject</a>
-                                @endif
-                            </td>
-                            <td>
-                                <a href="{{route('blogAdmin.show',$a->id)}}" class="btn btn-info"><i class="fe fe-eye"></i></a>
-                                <a href="{{route('blogAdmin.edit',$a->id)}}" class="btn btn-success"><i class="fe fe-pencil"></i></a>
-                                <button class="btn btn-danger" onclick="hapus({{$a->id}})"><i class="fe fe-trash"></i></button>
-                            </td>
-                        </tr>
-                        @endforeach
-                    </tbody>
-                </table>
             <ul class="nav nav-tabs nav-tabs-solid nav-justified">
                 <li class="nav-item"><a class="nav-link active" href="#solid-justified-tab1" data-toggle="tab">Blog Mentor</a></li>
                 <li class="nav-item"><a class="nav-link" href="#solid-justified-tab2" data-toggle="tab">Blog Super Admin</a></li>

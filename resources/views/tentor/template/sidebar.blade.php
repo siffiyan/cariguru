@@ -15,12 +15,16 @@
 		</div>
 	</div>
 	<div class="progress-bar-custom">
-		<h6>Complete your profiles ></h6>
+		<h6>My Point</h6>
 		<div class="pro-progress">
-			<div class="tooltip-toggle" tabindex="0"></div>
-			<div class="tooltip">80%</div>
+			<div class="tooltip-toggle" tabindex="96"></div>
+			<div class="tooltip">
+				{{session()->get('poin')}}
+			</div>
 		</div>
+		<a href="/tentor/log_point"><small style="float:right;cursor:pointer">Show History Point</small></a>
 	</div>
+	<br>
 	<div class="custom-sidebar-nav">
 		<ul>
 			<li><a href="/tentor/dashboard" class="active"><i class="fas fa-home"></i>Dashboard <span><i class="fas fa-chevron-right"></i></span></a></li>

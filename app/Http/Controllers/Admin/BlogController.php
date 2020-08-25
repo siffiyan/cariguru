@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\DB;
 use App\Models\Blog;
 use App\Models\Poin;
+use App\Models\Mitra;
 
 class BlogController extends Controller
 {
@@ -171,12 +172,16 @@ class BlogController extends Controller
         $blog->status = 'approve';
         $blog->save();
 
+        $mitra = Mitra::findOrFail($request->mitra_id)->first();
+        
+        Mitra::where('id',$mitra->id)->update(['poin' => $mitra->poin + 2]);
+
         $poin = Poin::create([
             'mitra_id' => $request->mitra_id,
             'poin' => 2,
-            'keterangan' => 'Berhasil Approve Blog',
+            'keterangan' => 'Membuat Blog/Artikel dengan judul '.$blog->judul,
         ]);
-
+        
         return json_encode([
             "code" => 200,
             "response" => 'data Blog berhasil di Approve',
