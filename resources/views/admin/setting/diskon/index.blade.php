@@ -37,6 +37,7 @@
 <tr>
 <th>No</th>
 <th>Kode Promo</th>
+<th>Presentase Diskon (%)</th>
 <th>Tanggal Mulai</th>
 <th>Tanggal Akhir</th>
 <th>Aksi</th>
@@ -47,6 +48,7 @@
 <tr>
 	<td>{{$loop->iteration}}</td>
 	<td>{{$r->kode_promo}}</td>
+	<td>{{$r->presentase}}</td>
 	<td>{{$r->tanggal_mulai}}</td>
 	<td>{{$r->tanggal_akhir}}</td>
 	<td><button class="btn btn-success" onclick="edit({{$r->id}})"><i class="fe fe-pencil"></i></button>
@@ -99,6 +101,13 @@
 </div>
 </div>
 
+<div class="col-md-12">
+<div class="form-group">
+<label>Presentase Diskon (%)</label>
+<input type="number" class="form-control" required="" name="presentase" required>
+</div>
+</div>
+
 </div>
 
 
@@ -147,6 +156,13 @@
 <div class="form-group">
 <label>Tanggal Akhir</label>
 <input type="date" name="tanggal_akhir" required="" id="tanggal_akhir" class="form-control">
+</div>
+</div>
+
+<div class="col-md-12">
+<div class="form-group">
+<label>Presentase Diskon (%)</label>
+<input type="number" class="form-control" required="" id="presentase" name="presentase" required>
 </div>
 </div>
 
@@ -203,6 +219,7 @@
 			success:function(response){
 				$('#id').val(id);
 				$('#kode_promo').val(response.kode_promo);
+				$('#presentase').val(response.presentase);
 				$('#tanggal_mulai').val(response.tanggal_mulai);
 				$('#tanggal_akhir').val(response.tanggal_akhir);
 				$('#modal_edit_diskon').modal('show');

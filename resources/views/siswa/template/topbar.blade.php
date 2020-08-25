@@ -47,13 +47,12 @@
 										<img src="{{asset('template/mentoring/html/admin/assets/img/profiles/avatar-11.jpg')}}" alt="User Image" class="avatar-img rounded-circle">
 									</div>
 									<div class="user-text">
-										<h6>Jonathan Doe</h6>
+										<h6>{{session('nama')}}</h6>
 										<p class="text-muted mb-0">Siswa</p>
 									</div>
 								</div>
-								<a class="dropdown-item" href="dashboard.html">Dashboard</a>
-								<a class="dropdown-item" href="profile-settings.html">Profile Settings</a>
-								<a class="dropdown-item" href="login.html">Logout</a>
+								<a class="dropdown-item" href="/siswa/profil">Profil</a>
+								<a class="dropdown-item" href="/siswa/logout">Logout</a>
 							</div>
 						</li>
 						<!-- /User Menu -->

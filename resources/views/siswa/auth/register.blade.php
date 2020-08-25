@@ -9,7 +9,7 @@
     <meta name="author" content="pixelstrap">
     <link href="{{asset('logo/logo.png')}}" rel="icon">
     <link rel="shortcut icon" href="public/img/logo.png" type="image/x-icon">
-    <title>Halaman Login</title>
+    <title>Halaman Register</title>
     <!-- Google font-->
     <link href="https://fonts.googleapis.com/css?family=Work+Sans:100,200,300,400,500,600,700,800,900" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
@@ -52,7 +52,7 @@
                 <div class="text-center">
                   
                   <img src="{{asset('logo/logo.png')}}" width="5%">
-                  <h2>Login Siswa Cariguru</h2>
+                  <h2>Registrasi Siswa Cariguru</h2>
                 </div>
             </div>
             </div>
@@ -67,6 +67,17 @@
               <div class="auth-innerright">
                 <div class="authentication-box">
                 
+
+                @if (count($errors) > 0)
+                <div class="alert alert-danger">
+                <ul>
+                @foreach ($errors->all() as $error)
+                {{ $error }}
+                @endforeach
+                </ul>
+                </div>
+                @endif
+
                  @if ($message = Session::get('success'))
                 <div class="alert alert-success">
                     {{$message}} 
@@ -81,17 +92,52 @@
                  
                     <div class="card mt-4" style="border-radius: 4px;">
                         <div class="card-body">
-                          <form class="theme-form" action="/siswa/login" method="post">
+                          <form class="theme-form" action="/siswa/register" method="post">
                             {{csrf_field()}}
+
+                            <div class="row">
+
+                            <div class="col-md-6">
+                            <div class="form-group">
+                                <input class="form-control" placeholder="Name" name="nama" type="text" autofocus required="" style="background-color: #F9EFF2; border-color: #F9EFF2;">
+                            </div>
+                            </div>
+
+                            <div class="col-md-6">
+                            <div class="form-group">
+                                <input class="form-control" placeholder="Username" name="username" type="text" autofocus required="" style="background-color: #F9EFF2; border-color: #F9EFF2;">
+                            </div>
+                            </div>
+
+                            <div class="col-md-6">
                             <div class="form-group">
                                 <input class="form-control" placeholder="E-mail" name="email" type="email" autofocus required="" style="background-color: #F9EFF2; border-color: #F9EFF2;">
                             </div>
+                            </div>
+
+                            <div class="col-md-6">
+                            <div class="form-group">
+                                <input class="form-control" placeholder="Number Handphone" name="no_hp" type="text" autofocus required="" style="background-color: #F9EFF2; border-color: #F9EFF2;">
+                            </div>
+                            </div>
+
+                            <div class="col-md-6">
                             <div class="form-group">
                                 <input class="form-control" placeholder="Password" name="password" type="password" value="" required="" style="background-color: #F9EFF2; border-color: #F9EFF2;">
                             </div>
+                            </div>
+
+                            <div class="col-md-6">
+                            <div class="form-group">
+                                <input class="form-control" placeholder="Confirm Password" name="confirm_password" type="password" value="" required="" style="background-color: #F9EFF2; border-color: #F9EFF2;">
+                            </div>
+                            </div>
+
+                            </div>
+
                             <div class="form-group form-row mt-3 mb-0">
-                              <button class="btn btn-danger btn-block" type="submit">LOGIN</button>
-                              <p style="margin-top: 5px;">Belum punya akun ? <a href="/siswa/register">daftar disini</a></p>
+                              <button class="btn btn-danger btn-block" type="submit">REGISTER</button>
+                               <p style="margin-top: 5px;">Sudah punya akun ? <a href="/siswa/login">login disini</a></p>
                             </div>
                           </form>
                         </div>

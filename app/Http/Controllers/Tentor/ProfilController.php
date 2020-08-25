@@ -40,7 +40,21 @@ class ProfilController extends Controller
     public function update(Request $request){
 
         $data = Mitra::where('id',session('id'))->first();
-        $data->update($request->all());
+        $change = $request->except('foto_profil');
+        
+        if(isset($request->foto_profil)){
+
+            $this->validate($request, [
+            'foto_profil' => 'required|max:10000|mimes:png,jpg'
+            ]);
+
+            $file = $request->file('foto_profil');
+            $foto_profil = time().$file->getClientOriginalName();
+            $change['foto_profil'] = $foto_profil;
+            $file->move('foto_guru',$foto_profil);
+        }
+
+        $data->update($change);
 
         return redirect('/tentor/profil')->with('msg','Data profil berhasil diedit');
     }

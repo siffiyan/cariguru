@@ -28,6 +28,7 @@ class AuthController extends Controller
 			if(Hash::check($password,$data->password)){
 
 				Session::put('email',$data->email);
+				Session::put('nama',$data->nama);
 				Session::put('id',$data->id);
                 Session::put('login',TRUE);
 
@@ -49,6 +50,38 @@ class AuthController extends Controller
 			return redirect('/siswa/login')->with('error','email / password anda salah');
 
 		}
+
+	}
+
+	public function logout(Request $request){
+
+		$request->session()->forget('email');
+		$request->session()->forget('nama');
+		$request->session()->forget('id');
+        $request->session()->forget('login');
+        $request->session()->flush();
+        
+	    return redirect('/siswa/login')->with('success','Anda berhasil logout !');
+
+	}
+
+	public function register(){
+
+		return view('siswa.auth.register');
+
+	}
+
+	public function register_action(Request $request){
+
+		$this->validate($request,[
+           'password' => 'required|min:6',
+		   'confirm_password' =>'required|same:password'
+        ]);
+
+		$data = $request->except('confirm_password');
+		$data['password'] = Hash::make($request->password);
+		Murid::create($data);
+		return redirect('/siswa/login')->with('success','Anda berhasil register silahlan login');
 
 	}
 

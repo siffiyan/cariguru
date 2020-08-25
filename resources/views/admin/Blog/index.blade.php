@@ -230,27 +230,27 @@
 <!-- Active Model -->
 
 <div id="approval" class="modal fade bs-modal-lg" tabindex="-1" aria-hidden="true">
-	<div class="modal-dialog custom-modal-size-sm">
-		<form>
-			<div class="modal-content">
-				<div class="modal-body">
-					<center>
-						<h4>Approval Blog</h4>
-					</center>
-					<hr>
-					<center>
+    <div class="modal-dialog custom-modal-size-sm">
+        <form>
+            <div class="modal-content">
+                <div class="modal-body">
+                    <center>
+                        <h4>Approval Blog</h4>
+                    </center>
+                    <hr>
+                    <center>
                         <input type="hidden" id="id_approved">
                         <input type="hidden" id="id_mitra">
                         <div class="dash text-center"><h6 style="margin-bottom:0 !important"> <b>make sure your choice is correct because your choice cannot be changed again</b></h6></div>
-					</center>
+                    </center>
                     <div class="row" style="margin-top: 25px;margin-left:10px;margin-right:10px">
                         <button class="btn btn-success btn-block btn-sm" id="btn-approve">Approve</button>
                         <button class="btn btn-danger btn-block btn-sm" id="btn-reject">Reject</button>
-					</div>
-				</div>
-			</div>
-		</form>
-	</div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
 </div>
 
 
