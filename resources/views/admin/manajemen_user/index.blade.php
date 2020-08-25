@@ -66,7 +66,7 @@ color: #fff;
 @foreach($murid as $r)
 <tr>
 	<td>{{$loop->iteration}}</td>
-	<td>{{$r->full_name}}</td>
+	<td>{{$r->nama}}</td>
 	<td>{{$r->email}}</td>
 	<td><button class="btn btn-success">detail</button></td>
 </tr>

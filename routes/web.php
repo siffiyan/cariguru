@@ -79,8 +79,12 @@ Route::prefix('admin')->group(function () {
 });
 
 Route::prefix('siswa')->group(function () {
+	
 	Route::get('login','Siswa\AuthController@login');
 	Route::post('login','Siswa\AuthController@login_action');
+	Route::get('logout','Siswa\AuthController@logout');
+	Route::get('register','Siswa\AuthController@register');
+	Route::post('register','Siswa\AuthController@register_action');
 
 	Route::get('dashboard','Siswa\DashboardController@index');
 

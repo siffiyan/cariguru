@@ -11,28 +11,54 @@
 </div>
 @endif
 
+@if(count($errors) > 0)
+<div class="alert alert-danger">
+@foreach ($errors->all() as $error)
+{{ $error }} <br/>
+@endforeach
+</div>
+@endif
+
 <div class="card">
 <div class="card-body">
 
 <!-- Profile Settings Form -->
-<form action="/tentor/profil" method="post">
+<form action="/tentor/profil" method="post" enctype="multipart/form-data">
 @csrf
 @method('PUT')
 <div class="row form-row">
 
-<div class="col-12 col-md-4">
+<div class="col-12 col-md-6">
+<div class="form-group">
+<label>Foto Profil</label>
+<input type="file" name="foto_profil" class="form-control">
+</div>
+</div>
+
+<div class="col-12 col-md-2">
+</div>
+
+<div class="col-12 col-md-2">
+<img src="{{asset('foto_guru/'.$user->foto_profil)}}" width="150">
+</div>
+
+<div class="col-12 col-md-2">
+</div>
+
+
+<div class="col-12 col-md-4" style="margin-top: 15px;">
 <div class="form-group">
 <label>Nama Lengkap</label>
 <input type="text" class="form-control" name="nama" value="{{$user->nama}}">
 </div>
 </div>
-<div class="col-12 col-md-4">
+<div class="col-12 col-md-4" style="margin-top: 15px;">
 <div class="form-group">
 <label>Email</label>
 <input type="email" class="form-control" name="email"  value="{{$user->email}}">
 </div>
 </div>
-<div class="col-12 col-md-4">
+<div class="col-12 col-md-4" style="margin-top: 15px;">
 <div class="form-group">
 <label>No Handphone</label>
 <input type="text" class="form-control" name="no_hp"  value="{{$user->no_hp}}">
