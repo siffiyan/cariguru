@@ -115,7 +115,7 @@
                                     </ul>
                                 </div>
                                 <div class="mentor-booking">
-                                    <a class="apt-btn" href="booking.html">Book Appointment</a>
+                                    <a class="apt-btn" href="/siswa/checkout/{{$item->id}}">Book Appointment</a>
                                 </div>
                             </div>
                         </div>
@@ -134,6 +134,7 @@
 @endsection
 
 @section('js')
+
     <script>
         $(document).ready(function(){
             mapel_list('1','2');

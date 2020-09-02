@@ -18,6 +18,8 @@
 		
 		<!-- Main CSS -->
 		<link rel="stylesheet" href="{{asset('template/mentoring/html/assets/css/style.css')}}">
+
+		@yield('css')
 		
 		<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
 		<!--[if lt IE 9]>

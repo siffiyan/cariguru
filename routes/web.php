@@ -92,7 +92,7 @@ Route::prefix('siswa')->group(function () {
 	Route::get('cariguru/filter/{jenjang}/{kurikulum}', 'Siswa\CariguruController@filter_mapel');
 	Route::get('cariguru/action_filter/{jenjang}/{kurikulum}/{mapel}', 'Siswa\CariguruController@action_filter');
 
-	Route::resource('checkout', 'Siswa\CheckoutController');
+	Route::get('checkout/{id}','Siswa\CheckoutController@index');
 	Route::get('checkout/promo/{promo}','Siswa\CheckoutController@promo');
 });
 

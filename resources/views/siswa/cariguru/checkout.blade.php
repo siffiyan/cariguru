@@ -1,5 +1,9 @@
 @extends('siswa.template.master')
 
+@section('css')
+<link href="https://cdn.jsdelivr.net/timepicker.js/latest/timepicker.min.css" rel="stylesheet"/>   
+@endsection
+
 @section('content')
 <div class="row">
     <div class="col-md-7 col-lg-8">
@@ -35,25 +39,25 @@
                             <div class="col-md-6 col-sm-12">
                                 <div class="form-group card-label">
                                     <label>First Name</label>
-                                    <input class="form-control" type="text">
+                                    <input class="form-control" type="text" value="{{$murid->first_name}}" readonly>
                                 </div>
                             </div>
                             <div class="col-md-6 col-sm-12">
                                 <div class="form-group card-label">
                                     <label>Last Name</label>
-                                    <input class="form-control" type="text">
+                                    <input class="form-control" type="text" value="{{$murid->last_name}}" readonly>
                                 </div>
                             </div>
                             <div class="col-md-6 col-sm-12">
                                 <div class="form-group card-label">
                                     <label>Email</label>
-                                    <input class="form-control" type="email">
+                                    <input class="form-control" type="email" value="{{$murid->email}}" readonly>
                                 </div>
                             </div>
                             <div class="col-md-6 col-sm-12">
                                 <div class="form-group card-label">
                                     <label>Phone</label>
-                                    <input class="form-control" type="text">
+                                    <input class="form-control" type="text" value="{{$murid->no_hp}}" readonly>
                                 </div>
                             </div>
                         </div>
@@ -69,19 +73,19 @@
                                 <div class="col-md-4">
                                     <div class="form-group card-label">
                                         <label for="card_name">Bank</label>
-                                        <input class="form-control" id="card_name" value="BANK MANDIRI" type="text">
+                                        <input class="form-control" id="card_name" value="BANK MANDIRI" type="text" readonly>
                                     </div>
                                 </div>
                                 <div class="col-md-3">
                                     <div class="form-group card-label">
                                         <label for="card_number">No Rekening</label>
-                                        <input class="form-control" id="card_number" value="1234567889" type="text">
+                                        <input class="form-control" id="card_number" value="1234567889" type="text" readonly>
                                     </div>
                                 </div>
                                 <div class="col-md-5">
                                     <div class="form-group card-label">
                                         <label for="card_number">Atas Nama</label>
-                                        <input class="form-control" id="card_number" value="PT. CARI GURU Tbk" type="text">
+                                        <input class="form-control" id="card_number" value="PT. CARI GURU Tbk" type="text" readonly>
                                     </div>
                                 </div>
                             </div>
@@ -89,19 +93,19 @@
                                 <div class="col-md-4">
                                     <div class="form-group card-label">
                                         <label for="card_name">Bank</label>
-                                        <input class="form-control" id="card_name" value="BANK BNI" type="text">
+                                        <input class="form-control" id="card_name" value="BANK BNI" type="text" readonly>
                                     </div>
                                 </div>
                                 <div class="col-md-3">
                                     <div class="form-group card-label">
                                         <label for="card_number">No Rekening</label>
-                                        <input class="form-control" id="card_number" value="1234567889" type="text">
+                                        <input class="form-control" id="card_number" value="1234567889" type="text" readonly>
                                     </div>
                                 </div>
                                 <div class="col-md-5">
                                     <div class="form-group card-label">
                                         <label for="card_number">Atas Nama</label>
-                                        <input class="form-control" id="card_number" value="PT. CARI GURU Tbk" type="text">
+                                        <input class="form-control" id="card_number" value="PT. CARI GURU Tbk" type="text" readonly>
                                     </div>
                                 </div>
                             </div>
@@ -109,19 +113,19 @@
                                 <div class="col-md-4">
                                     <div class="form-group card-label">
                                         <label for="card_name">Bank</label>
-                                        <input class="form-control" id="card_name" value="BANK BRI" type="text">
+                                        <input class="form-control" id="card_name" value="BANK BRI" type="text" readonly>
                                     </div>
                                 </div>
                                 <div class="col-md-3">
                                     <div class="form-group card-label">
                                         <label for="card_number">No Rekening</label>
-                                        <input class="form-control" id="card_number" value="1234567889" type="text">
+                                        <input class="form-control" id="card_number" value="1234567889" type="text" readonly>
                                     </div>
                                 </div>
                                 <div class="col-md-5">
                                     <div class="form-group card-label">
                                         <label for="card_number">Atas Nama</label>
-                                        <input class="form-control" id="card_number" value="PT. CARI GURU Tbk" type="text">
+                                        <input class="form-control" id="card_number" value="PT. CARI GURU Tbk" type="text" readonly>
                                     </div>
                                 </div>
                             </div>
@@ -167,7 +171,7 @@
                         <img src="{{asset('/template/mentoring/html/assets/img/guru.png')}}" alt="User Image">
                     </a>
                     <div class="booking-info">
-                        <h4><a href="payment-mentee.html">Darren Elder</a></h4>
+                        <h4><a href="payment-mentee.html">{{$mitra->nama}}</a></h4>
                         <div class="rating">
                             <i class="fas fa-star filled"></i>
                             <i class="fas fa-star filled"></i>
@@ -217,6 +221,7 @@
 @endsection
 
 @section('js')
+<script src="https://cdn.jsdelivr.net/timepicker.js/latest/timepicker.min.js"></script>
     <script>
         $('#btn-submit').click(function(e){
             e.preventDefault();
@@ -240,10 +245,13 @@
                             <input class="form-control" type="time" id="jumlah_pertemuan">
                         </div>
                     </div>
-                    <div class="col-md-3 col-sm-12">
+                    <div class="col-md-3 col-sm-12" style="margin-top:18px">
                         <div class="form-group card-label">
-                            <label>Waktu Selesai `+i+`</label>
-                            <input class="form-control" type="time" id="jumlah_pertemuan">
+                            <select class="form-control">
+                                <option value="WIB" selected>WIB</option>
+                                <option value="WITA">WITA</option>
+                                <option value="WIT">WIT</option>
+                            </select>
                         </div>
                     </div>
                 `);
